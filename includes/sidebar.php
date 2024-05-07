@@ -1,4 +1,5 @@
 <?php
+
 // Check if HTTPS is used, otherwise default to HTTP
 $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 // Get the server name (e.g., www.example.com)

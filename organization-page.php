@@ -220,10 +220,10 @@ $baseUrl = $protocol . $serverName . $webRoot;
 
 <?php include('includes/sidebar.php'); ?>
   </div>
-  <!-- /.row -->
+
   
 
 </div>
-<!-- /.container -->
+
 <?php include('includes/footer.php'); ?>
 

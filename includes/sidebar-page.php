@@ -1,19 +1,5 @@
 <?php
-// Check if HTTPS is used, otherwise default to HTTP
-$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-// Get the server name (e.g., www.example.com)
-$serverName = $_SERVER['SERVER_NAME'];
-// Get the port number
-$port = $_SERVER['SERVER_PORT'];
 
-// If the port is not standard, include it in the URL
-if (($protocol === "https://" && $port != 443) || ($protocol === "http://" && $port != 80)) {
-    $serverName .= ":" . $port;
-}
-// Get the web root path (if your application is in a subdirectory e.g., /myapp)
-$webRoot = dirname($_SERVER['PHP_SELF']);
-// Construct the base URL
-$baseUrl = $protocol . $serverName . $webRoot;
 ?>
 
 <!-- Sidebar Widgets Column -->
@@ -105,15 +91,15 @@ if($widgetcount == 1){
             <?php
             if($_SESSION['lang'] === 'en') {
               ?>
-              <a href="<?php echo $baseUrl ."/single.php?url=". $post['slug']; ?>"><?php echo $post['entitle']; ?></a>
+              <a href="<?php echo "single.php?url=". $post['slug']; ?>"><?php echo $post['entitle']; ?></a>
               <?php
             }else if($_SESSION['lang'] === 'bo') {
               ?>
-              <a href="<?php echo $baseUrl ."/single.php?url=". $post['slug']; ?>"><?php echo $post['tbtitle']; ?></a>
+              <a href="<?php echo "single.php?url=". $post['slug']; ?>"><?php echo $post['tbtitle']; ?></a>
               <?php
             } else {
               ?>
-              <a href="<?php echo $baseUrl ."/single.php?url=". $post['slug']; ?>"><?php echo $post['entitle']; ?></a>
+              <a href="<?php echo "single.php?url=". $post['slug']; ?>"><?php echo $post['entitle']; ?></a>
               <?php
 
             }
@@ -149,15 +135,15 @@ if($widgetcount == 1){
               <?php
             if($_SESSION['lang'] === 'en') {
               ?>
-              <a href="<?php echo $baseUrl ."/tensum.php?url=". $post['slug']; ?>"><?php echo $post['entitle']; ?></a>
+              <a href="<?php echo "tensum.php?url=". $post['slug']; ?>"><?php echo $post['entitle']; ?></a>
               <?php
             }else if($_SESSION['lang'] === 'bo') {
               ?>
-              <a href="<?php echo $baseUrl ."/tensum.php?url=". $post['slug']; ?>"><?php echo $post['tbtitle']; ?></a>
+              <a href="<?php echo "tensum.php?url=". $post['slug']; ?>"><?php echo $post['tbtitle']; ?></a>
               <?php
             } else {
               ?>
-              <a href="<?php echo $baseUrl ."/tensum.php?url=". $post['slug']; ?>"><?php echo $post['entitle']; ?></a>
+              <a href="<?php echo "tensum.php?url=". $post['slug']; ?>"><?php echo $post['entitle']; ?></a>
               <?php
 
             }
