@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  sql_db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # Ensure strong passwords in production
+      MYSQL_DATABASE: cta_nekor_data
+    ports:
+      - "3306:3306"  # Only expose if necessary, especially in production environments
+
+  php_web:
+    image: php:7.2.2-apache
+    depends_on:
+      - sql_db
+    volumes:
+      - .:/var/www/html  # Maps the current directory to the Apache document root
+    environment:
+      DB_HOST: sql_db  # Correct, matches the MySQL service name
+      DB_PORT: 3306
+      DB_NAME: cta_nekor_data
+      DB_USER: root
+      DB_PASSWORD: root
+      SERVER_NAME: php_web  # This environment variable might not be necessary for functionality
+      SERVER_PORT: "8100"  # Useful if dynamically configuring server settings in PHP scripts
+    ports:
+      - "8100:80"  # Maps port 8100 on the host to port 80 in the container
+    stdin_open: true
+    tty: true
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - sql_db
+    environment:
+      PMA_HOST: sql_db  # Correct, should allow phpMyAdmin to connect to the MySQL database
+      PMA_PORT: 3306
+    ports:
+      - "8102:80"  # Maps port 8102 on the host to port 80 in the container

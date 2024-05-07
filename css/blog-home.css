@@ -1,0 +1,140 @@
+/*!
+ * Start Bootstrap - Blog Home (https://startbootstrap.com/template-overviews/blog-home)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-home/blob/master/LICENSE)
+ */
+ @font-face {
+  font-family: 'Monlam';
+  src: url('../vendor/font/MonlamTBslim.woff2') format('woff2'),
+      url('../vendor/font/MonlamTBslim.woff') format('woff'),
+      url('../vendor/font/MonlamTBslim.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+font-family: 'Hindi';
+src: url('../vendor/font/Poppins-Regular.woff2') format('woff2'),
+    url('../vendor/font/Poppins-Regular.woff') format('woff'),
+    url('../vendor/font/Poppins-Regular.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+font-display: swap;
+}
+
+*{
+  font-family: sans-serif, 'Monlam';
+}
+p{
+  
+    text-align: justify;
+    font-family: 'Open Sans', Arial, sans-serif, 'Monlam';
+    font-size: 17px !important;
+    line-height: 33px;
+}
+body {
+  padding-top: 54px;
+  font-family: sans-serif, 'Monlam';
+}
+li{
+  line-height: 30px;
+}
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+a{
+  font-size: 14px !important;
+  color:#06c ;
+}
+.h5, h5 {
+  font-size: 16px !important;
+  }
+  .btn{
+    font-size: 14px !important;
+    border-radius: 5px 5px 5px 5px;
+    background-color: rgba(210, 214, 218, 0.47);
+    color: #8f8787;
+    /* border-color: rgba(77, 84, 91, 0.17); */
+  }
+  hr{
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  .card{
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  .card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    }
+    a:hover {
+      color: #62a1e6 ;
+      text-decoration: none !important;
+      }
+    a:hover, a:focus {
+      color: #346692 !important;
+      text-decoration: none !important;
+    }
+    .form-control{
+      border: 1px solid rgba(255, 255, 255, 1);
+    }
+    h3{
+      color: rgb(96, 97, 97) !important;
+    }
+    h5{
+      color: rgb(123, 124, 124) !important;
+    }
+    .card-text{
+      overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 4;line-clamp: 4;-webkit-box-orient: vertical;
+    }
+    .card-img-top {
+      width: 100%;
+      border-top-left-radius: calc(0.50rem - 1px) !important;
+      border-top-right-radius: calc(0.50rem - 1px) !important;
+    }
+    .btn-primary:hover {
+      color: #2d2d2d !important;
+      background-color: #9b9b9c !important;
+      border-color: #eaecee !important;
+    }
+    .card-footer {
+      padding: 0.75rem 1.25rem;
+      background-color: rgba(0,0,0,.03);
+      border-top: 1px solid rgb(0 0 0 / 3%) !important;
+  }
+  .video-wrapper {
+    
+    overflow: hidden;
+    border-radius: 15px; /* Apply desired border-radius here */
+    border: 1px solid rgb(1, 1, 1); /* Optional: if you want a border */
+    background-color: black;
+}
+.pb-5, .py-5{
+  padding-bottom: 1.5rem !important;
+  padding-top: 1.5rem !important;
+}
+.btn-danger:hover{
+  background-color: #9b9b9c !important;
+}
+/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+      width: 100%;
+    }
+  }
