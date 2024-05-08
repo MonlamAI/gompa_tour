@@ -1,13 +1,11 @@
 <?php
-// Database connection parameters
-$dsn = 'mysql:host=localhost;dbname=cta_nekor_data';
-$username = 'root';
-$password = 'root';
+$dsn = getenv('SQL_DATABASE') ?: 'mysql:host=sql_db;dbname=cta_nekor_data';
+$username = getenv('SQL_USER') ?: 'root';
+$password = getenv('SQL_PASSWORD') ?: 'root';
 
 try {
     // Create a new PDO instance
     $db = new PDO($dsn, $username, $password);
-
     // Set PDO to throw exceptions on error
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
