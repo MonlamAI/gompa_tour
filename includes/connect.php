@@ -1,8 +1,10 @@
 <?php
-$dsn = getenv('SQL_DATABASE') ?: 'mysql:host=sql_db;dbname=cta_nekor_data';
+$host = getenv('SQL_DB_HOST') ?: 'sql_db'; // Fallback to 'sql_db' if the environment variable is not set
+$dbname = getenv('SQL_DATABASE_NAME') ?: 'cta_nekor_data'; // Fallback to 'cta_nekor_data' if the environment variable is not set
+
+$dsn = "mysql:host=$host;dbname=$dbname";
 $username = getenv('SQL_USER') ?: 'root';
 $password = getenv('SQL_PASSWORD') ?: 'root';
-
 try {
     // Create a new PDO instance
     $db = new PDO($dsn, $username, $password);
