@@ -1,5 +1,5 @@
 <?php
-$host = getenv('SQL_DB_HOST') ?: 'sql_db'; // Fallback to 'sql_db' if the environment variable is not set
+$host = getenv('SQL_DB_HOST') ?: 'localhost'; // Fallback to 'sql_db' if the environment variable is not set
 $dbname = getenv('SQL_DATABASE_NAME') ?: 'cta_nekor_data'; // Fallback to 'cta_nekor_data' if the environment variable is not set
 
 $dsn = "mysql:host=$host;dbname=$dbname";
