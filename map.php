@@ -51,7 +51,7 @@ $gonpaName ="<span>ཐེག་མཆོག་རྣམ་གྲོལ་གླ�
   }
      </style>
  
-<div style="padding-bottom: 200px;" class="container">
+<div  class="container">
 
   <div class="row">
 

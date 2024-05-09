@@ -337,4 +337,6 @@ $baseUrl = $protocol . $serverName . $webRoot;
 <script type="text/javascript" src="vendor/qr-gnr/qr.js"></script></body>
 
 
+
+
 <?php include('includes/footer.php'); ?>

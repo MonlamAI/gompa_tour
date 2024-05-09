@@ -47,7 +47,7 @@ $baseUrl = $protocol . $serverName . $webRoot;
 </script> -->
 
 <!-- Page Content -->
-<div style="padding-bottom: 200px;" class="container">
+<div  class="container">
 
   <div class="row">
 
