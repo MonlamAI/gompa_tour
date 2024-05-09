@@ -45,7 +45,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
     <p style="text-align: center;" class="col-lg-8 mx-auto fs-5 text-muted">
      <span style="color:#026dc4"><?php echo htmlspecialchars(translate('home_welcome_massge'), ENT_QUOTES, 'UTF-8'); ?>
      </span> <br><?php echo htmlspecialchars(translate('home_discretion'), ENT_QUOTES, 'UTF-8'); ?> 
-    <br><a href="help.php"><?php echo translate('how_to_use'); ?></a>
+    <br><a href="post-page.php"><?php echo translate('how_to_use'); ?></a>
     </p>
    
   </div>
