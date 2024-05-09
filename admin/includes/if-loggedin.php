@@ -11,11 +11,11 @@ if((basename($_SERVER['PHP_SELF']) == 'login.php') || (basename($_SERVER['PHP_SE
 		if(($user['role'] == 'administrator') || ($user['role'] == 'editor')){
 			//echo "role: admin/editor";
 			// redirect to dashboard page
-			header("location: http://localhost/Blog-PHP/admin/dashboard.php");
+			header("location: https://gompatour.com/admin/dashboard.php");
 		}elseif($user['role'] == 'subscriber'){
 			//echo "role: subscriber";
 			// redirect to Blog Home page
-			header("location: http://localhost/Blog-PHP/index.php");
+			header("location: https://gompatour.com/index.php");
 		}
 	}
 }
