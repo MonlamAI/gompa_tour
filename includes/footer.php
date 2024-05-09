@@ -22,16 +22,6 @@
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script>
-  
-  window.addEventListener('load', function(){
-    const lang = false;
-  if (lang === false){
-    alert('སྐད་ཡིག་འདེམས།');
-    lang =true;
-  }
-    
-  })
-</script>
+
 </body>
 </html>

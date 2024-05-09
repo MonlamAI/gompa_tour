@@ -589,6 +589,14 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
           
       </script> -->
       <script>
+  
+      window.addEventListener('load', function(){
+        const lang = false;
+      if (lang === false){
+        alert('སྐད་ཡིག་འདེམས།');
+        lang =true;
+      }
         
-      </script>
+      })
+    </script>
 

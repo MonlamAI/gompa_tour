@@ -22,15 +22,16 @@ include('includes/navigation.php');
 
     <!-- Post Content Column -->
     <div class="col-lg-8">
+
       
-      <h3 class="mt-4">བཤེར་འབེབས་འཚོལ་ཞིབ།</h3>
+      <h4 class="mt-4"style="margin-left: 20px; margin-bottom: 15px;">བཤེར་འབེབས་འཚོལ་ཞིབ།</h4>
       
       <div class="col-lg-8" id="video-container">
     <video style="transform: scaleX(-1); height: 320px;"class="col-lg video-wrapper" id="qr-video"></video>
       </div>
       <div>
           <label>
-              ཚད་མཐོའི་སྤུས་ཀ།
+              ཚད་མཐོའི་སྤུས་ཀ
               <select class="form-select" id="scan-region-highlight-style-select">
                   <option value="default-style">Default style</option>
                   <option value="example-style-1">Example custom style 1</option>
@@ -216,4 +217,3 @@ include('includes/navigation.php');
 
 </div>
 <!-- /.container -->
-<?php include('includes/footer.php'); ?>
