@@ -12,7 +12,7 @@
     // Fetch the result
     $copyright = $copyrightresult->fetch(PDO::FETCH_ASSOC);
 ?>
-<footer style="position: fixed;left: 0;bottom: 0;width: 100%; z-index:9999" class="py-5 bg-dark">
+<footer style="left: 0;bottom: 0;width: 100%; z-index:9999" class="py-5 bg-dark">
   <div class="container">
     <p class="m-0 text-center text-white">© <?php echo date("Y"), " ", htmlspecialchars($copyright['value']); ?></p>
   </div>
