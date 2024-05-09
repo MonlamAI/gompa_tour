@@ -12,9 +12,9 @@
     // Fetch the result
     $copyright = $copyrightresult->fetch(PDO::FETCH_ASSOC);
 ?>
-<footer style="position: absolute;left: 0;bottom: 0;width: 100%;z-index:9999" class="py-5 bg-dark">
+<footer style="left: 0;bottom: 0;width: 100%;z-index:9999" class="py-5 bg-dark">
   <div class="container">
-    <p class="m-0 text-center text-white">© <?php echo date("Y"), " ", htmlspecialchars($copyright['value']); ?></p>
+    <p style="font-size: 14px!important;"class="m-0 text-center text-white">© <?php echo date("Y"), " ", htmlspecialchars($copyright['value']); ?></p>
   </div>
   <!-- /.container -->
 </footer>
@@ -23,8 +23,14 @@
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script>
+  
   window.addEventListener('load', function(){
+    const lang = false;
+  if (lang === false){
     alert('སྐད་ཡིག་འདེམས།');
+    lang =true;
+  }
+    
   })
 </script>
 </body>

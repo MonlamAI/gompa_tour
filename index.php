@@ -472,11 +472,9 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
 <script type="module">
   import QrScanner from "./vendor/qr-scanner/qr-scanner.min.js";
   
-  
+  function qrCodeGn(){
 
-         
-   
-          const video = document.getElementById('qr-video');        
+    const video = document.getElementById('qr-video');        
           const videoContainer = document.getElementById('video-container');
           const camHasCamera = document.getElementById('cam-has-camera');
           const camList = document.getElementById('cam-list');
@@ -586,6 +584,13 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
                   .then(result => setResult(fileQrResult, result))
                   .catch(e => setResult(fileQrResult, { data: e || 'No QR code found.' }));
           });
+
+
+  }
+
+         
+   
+          
         
           
       </script>
