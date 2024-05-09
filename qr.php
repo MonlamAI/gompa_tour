@@ -67,7 +67,7 @@ $baseUrl = $protocol . $serverName . $webRoot;
         </section>
         <section class="container" style="padding-top: 80px;">
             <div class="row row--body">
-            <div style="margin-bottom: 15px; margin-left:10px; margin-right: 10px;" class="col- qr-code-container">
+            <div style="margin-bottom: 15px; background-color: rgb(255, 255, 255); padding-bottom: 10px; padding-right: 10px; padding-left: 10px;" class="col- qr-code-container">
                     <div class="qr-code" id="qr-code-generated" style="text-align: center;"></div>
                     <div class="qr-download-group">
                         <button class="btn btn-primary" style="border: none; position: relative; left: -40px;" id="qr-download"><?php echo translate('download');?></button>

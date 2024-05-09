@@ -174,5 +174,6 @@ $user = $userresult->fetch(PDO::FETCH_ASSOC);
    </div>
 
 </div>
+</div>
 <!-- /.container -->
 <?php include('includes/footer.php'); ?>

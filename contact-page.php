@@ -192,6 +192,7 @@ var gonpaIcon = L.icon({
   </div>
   <!-- /.row -->
 </div>
+</div>
 <!-- /.container -->
 <?php include('includes/footer.php'); ?>
 

@@ -210,5 +210,6 @@ if($_SESSION['lang'] === 'en'){
   <!-- /.row -->
 
 </div>
+</div>
 <!-- /.container -->
 <?php include('includes/footer.php'); ?>

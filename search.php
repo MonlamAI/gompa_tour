@@ -148,6 +148,8 @@ $baseUrl = getBaseUrl();
   <!-- /.row -->
 
 </div>
+</div>
+</div>
 <!-- /.container -->
 <?php include('includes/footer.php'); ?>
 

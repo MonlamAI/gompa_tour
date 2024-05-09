@@ -224,6 +224,6 @@ $baseUrl = $protocol . $serverName . $webRoot;
   
 
 </div>
-
+</div>
 <?php include('includes/footer.php'); ?>
 
