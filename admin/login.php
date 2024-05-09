@@ -51,7 +51,7 @@ if(isset($_POST) && !empty($_POST)){
             // Compare the password with password hash
             if(password_verify($_POST['password'], $res['password'])){
                 // Regenerate session id
-                session_regenerate_id();
+                //session_regenerate_id();
                 $_SESSION['login'] = true;
                 $_SESSION['id'] = $res['id'];
                 $_SESSION['last_login'] = time();
