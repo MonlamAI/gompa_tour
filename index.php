@@ -425,7 +425,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="langModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -437,13 +437,13 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
       <div style="text-align: center;" class="modal-body">
         འདི་ནས་སྐད་ཡིག་འདེམས་རོགས།
         <div>
-          <div style="margin: 10px;border-top: 1px solid #ccc;padding: 10px;text-align: center;">
-          <a  href="#" onclick="changeLanguage('bo')">
+          <div class="col-6" style="margin: 10px;padding: 10px;text-align: center;">
+          <a  href="?lang=bo" onclick="changeLanguageBo()">
           <img src="vendor/img/bo-lang.png" width="42px" alt="">
             བོད་ཡིག</a>
           </div>
-          <div style="margin: 10px;border-top: 1px solid #ccc;padding: 10px;text-align: center;">
-          <a  href="#" onclick="changeLanguage('en')">
+          <div class="col-6" style="margin: 10px;padding: 10px;text-align: center;">
+          <a  href="?lang=en" onclick="changeLanguageEn()">
           <img src="vendor/img/en-lang.png" width="42px" alt="">
             English</a>
           </div>
@@ -588,15 +588,32 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
         
           
       </script> -->
-      <script>
+
+
+<script>
   
-      window.addEventListener('load', function(){
-        const lang = false;
-      if (lang === false){
-        alert('སྐད་ཡིག་འདེམས།');
-        lang =true;
-      }
-        
-      })
-    </script>
+  // Add event listener for window load
+  window.addEventListener('load', function() {
+    // Show the language modal
+    var localValue = localStorage.getItem('session_start');
+    if (localValue === 'bo-lang') {
+      
+    }else{
+      $('#langModal').modal('show');
+    }
+    
+  });
+
+  function changeLanguageBo() {
+    localStorage.setItem('session_start', 'bo-lang');
+
+    $('#langModal').modal('hide');
+  }
+  function changeLanguageEn() {
+    localStorage.setItem('session_start', 'en-lang');
+
+    $('#langModal').modal('hide');
+  }
+</script>
+    
 
