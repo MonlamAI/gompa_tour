@@ -74,14 +74,14 @@ include('includes/navigation.php');
                 // Display results
                 if (empty($totalResults)) {
                     ?>
-                    <p class="card-text"></p><p style="border-bottom: 1px solid #ececec;line-height: 25px;margin: 0px 0px 15px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px; background-color: #ffffff;">
+                    <p style="border-bottom: 1px solid #ececec;line-height: 25px;margin: 0px 0px 15px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px; background-color: #ffffff;">
                     འདི་འདྲ་ཞིག་ <span style="color:red;" ><?php echo $_GET['search'] ?></span>  རྙེད་ཀྱི་མི་འདུག
                         </p>    
                         </div>
                     <?php
                 }else{
                     ?>
-                    <p class="card-text"></p><p style="border-bottom: 1px solid #ececec;line-height: 25px;margin: 0px 0px 15px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px; background-color: #ffffff;">
+                    <p style="border-bottom: 1px solid #ececec;line-height: 25px;margin: 0px 0px 15px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px; background-color: #ffffff;">
                     འཚོལ་ཞིབ་ཀྱི་རྙེད་དོན་གྲངས་ <span style="color:rgb(4, 162, 125);" ><?php echo $totalResults ?></span>  འདུག
                         </p>    
                   
@@ -93,7 +93,7 @@ include('includes/navigation.php');
                     <div style="padding-top: 20px;" class="card-body">
                         <h4 style="color: #1e5fa6;" class="card-title"><?php echo htmlspecialchars($row['title']) ?></h4>
                         <div>
-                        <p class="card-text"></p><p style="border-bottom: 1px solid #ececec;line-height: 25px;margin: 0px 0px 15px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px; background-color: #ffffff;">
+                        <p style="border-bottom: 1px solid #ececec;line-height: 25px;margin: 0px 0px 15px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px; background-color: #ffffff;">
                             <?php echo htmlspecialchars($row['content']) ?>
                         </p>    
                         </div>
@@ -112,7 +112,7 @@ include('includes/navigation.php');
                 }
             } else {
                 ?>
-                <p class="card-text"></p><p style="border-bottom: 1px solid #ececec;line-height: 25px;margin: 0px 0px 15px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px; background-color: #ffffff;">
+                <p style="border-bottom: 1px solid #ececec;line-height: 25px;margin: 0px 0px 15px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px; background-color: #ffffff;">
                 <span style="color:red;" ><?php echo "ཁྱེད་ཀྱི་འཚོལ་ཞིབ་བྱ་ཡུལ་སྟོང་པ་རེད་་་་" ?></span>
                 <?php
             }

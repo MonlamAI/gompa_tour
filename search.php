@@ -80,14 +80,14 @@ $baseUrl = getBaseUrl();
                 // Display results
                 if (empty($totalResults)) {
                     ?>
-                    <p class="card-text"></p><p style="color: #999;border-bottom: 1px solid #ececec;margin: 0px 0px 13px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 12px; !important;">
+                    <p style="color: #999;border-bottom: 1px solid #ececec;margin: 0px 0px 13px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 12px; !important;">
                     འདི་འདྲ་ཞིག་ <span style="color:red;" ><?php echo $_GET['search'] ?></span>  རྙེད་ཀྱི་མི་འདུག
                         </p>    
                         </div>
                     <?php
                 }else{
                     ?>
-                    <p class="card-text"></p><p style="color: #999;border-bottom: 1px solid #ececec;margin: 0px 0px 13px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 12px !important; ">
+                    <p style="color: #999;border-bottom: 1px solid #ececec;margin: 0px 0px 13px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 12px !important; ">
                     འཚོལ་ཞིབ་ཀྱི་རྙེད་དོན་གྲངས་ <span style="color:rgb(4, 162, 125);" ><?php echo $totalResults ?></span>  འདུག
                         </p>    
                   
@@ -112,7 +112,7 @@ $baseUrl = getBaseUrl();
                        
                         <div style="border-bottom: 1px solid #ececec;">
                         <img style="width: 150px;object-fit: cover;flo;float: left;height: 90px;object-position: top;margin-right: 6px;position: relative;top: 8px;" class="img-fluid rounded" src="<?php echo $baseUrl ?>/<?php echo $row['pic']; ?>" alt="">  
-                        <p class="card-text"></p><p style="position: relative;top: -10px; line-height: 30px; margin: 0px 0px 14px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px !important; background-color: #ffffff; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; max-height: 90px; -webkit-line-clamp: 3;">
+                        <p style="position: relative;line-height: 30px; margin: 0px 0px 14px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px !important; background-color: #ffffff; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; max-height: 90px; -webkit-line-clamp: 3;">
                          
                         <?php echo htmlspecialchars($web_content) ?>
                         </p>    
@@ -129,7 +129,7 @@ $baseUrl = getBaseUrl();
                 }
             } else {
                 ?>
-                <p class="card-text"></p><p style="border-bottom: 1px solid #ececec;line-height: 25px;margin: 0px 0px 15px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px; background-color: #ffffff;">
+                <p style="border-bottom: 1px solid #ececec;line-height: 25px;margin: 0px 0px 15px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px; background-color: #ffffff;">
                 <span style="color:red;" ><?php echo "ཁྱེད་ཀྱི་འཚོལ་ཞིབ་བྱ་ཡུལ་སྟོང་པ་རེད་་་་" ?></span>
                 <?php
             }
