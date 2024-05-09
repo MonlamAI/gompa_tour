@@ -5,15 +5,15 @@ include('includes/header.php');
 include('comment.php');
 include('includes/navigation.php'); 
 
-$sql = "SELECT * FROM posts WHERE slug=? AND status='published'";
-$result = $db->prepare($sql);
-$result->execute(array($_GET['url']));
-$post = $result->fetch(PDO::FETCH_ASSOC);
+// $sql = "SELECT * FROM posts WHERE slug=? AND status='published'";
+// $result = $db->prepare($sql);
+// $result->execute(array($_GET['url']));
+// $post = $result->fetch(PDO::FETCH_ASSOC);
 
-$usersql = "SELECT * FROM users WHERE id=?";
-$userresult = $db->prepare($usersql);
-$userresult->execute(array($post['uid']));
-$user = $userresult->fetch(PDO::FETCH_ASSOC);
+// $usersql = "SELECT * FROM users WHERE id=?";
+// $userresult = $db->prepare($usersql);
+// $userresult->execute(array($post['uid']));
+// $user = $userresult->fetch(PDO::FETCH_ASSOC);
 ?>
 <!-- Page Content -->
 <div class="container">
@@ -22,10 +22,6 @@ $user = $userresult->fetch(PDO::FETCH_ASSOC);
 
     <!-- Post Content Column -->
     <div class="col-lg-8">
-
-      <!-- Title -->
-      <h1 class="mt-4"><?php echo $post['title']; ?></h1>
-
       
       <h3 class="mt-4">བཤེར་འབེབས་འཚོལ་ཞིབ།</h3>
       

@@ -77,10 +77,11 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
                   </p>
                   <div class="d-flex justify-content-between align-items-center">
                   
-                  <button data-toggle="modal" data-target="#myModal" style="background-color: color(srgb 0.8557 0.9406 0.995); border: none;" class="btn btn-secondary" type="submit">
+                  <a href="scann.php">
+                  <button  style="background-color: color(srgb 0.8557 0.9406 0.995); border: none;" class="btn btn-secondary" type="submit">
                     <img style="width: 45px; text-align: left; float: left;" src="vendor/img/qr-code.png" alt="">
                   </button>
-                 
+                  </a>
                   
                   <button data-toggle="modal" data-target="#searchModal" style="background-color: color(srgb 0.8557 0.9406 0.995); border: none;" class="btn btn-secondary" type="submit">
                     <img style="width: 45px; text-align: left; float: left;" src="vendor/img/search-code.png" alt="">
@@ -110,10 +111,11 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
                   </a>
                   </p>
                   <div class="d-flex justify-content-between align-items-center">
-                   
-                  <button data-toggle="modal" data-target="#myModal" style="background-color: color(srgb 0.8557 0.9406 0.995); border: none;" class="btn btn-secondary" type="submit">
+                  <a href="scann.php">
+                  <button  style="background-color: color(srgb 0.8557 0.9406 0.995); border: none;" class="btn btn-secondary" type="submit">
                     <img style="width: 45px; text-align: left; float: left;" src="vendor/img/qr-code.png" alt="">
                   </button>
+                  </a>
                   
 
                   <a href="map.php">
@@ -150,10 +152,11 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
                   </a>
                   </p>
                   <div class="d-flex justify-content-between align-items-center">
-                  
-                  <button data-toggle="modal" data-target="#myModal" style="background-color: color(srgb 0.8557 0.9406 0.995); border: none;" class="btn btn-secondary" type="submit">
+                  <a href="scann.php">
+                  <button  data-toggle="modal" data-target="#myModal" style="background-color: color(srgb 0.8557 0.9406 0.995); border: none;" class="btn btn-secondary" type="submit">
                     <img style="width: 45px; text-align: left; float: left;" src="vendor/img/qr-code.png" alt="">
                   </button>
+                  </a>
              
                   
                   <button data-toggle="modal" data-target="#searchModal2" style="background-color: color(srgb 0.8557 0.9406 0.995); border: none;" class="btn btn-secondary" type="submit">
@@ -469,12 +472,10 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
     }
   });
 </script>
-<script type="module">
+<!-- <script type="module">
   import QrScanner from "./vendor/qr-scanner/qr-scanner.min.js";
   
-  function qrCodeGn(){
-
-    const video = document.getElementById('qr-video');        
+          const video = document.getElementById('qr-video');        
           const videoContainer = document.getElementById('video-container');
           const camHasCamera = document.getElementById('cam-has-camera');
           const camList = document.getElementById('cam-list');
@@ -540,17 +541,17 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
           // for debugging
           window.scanner = scanner;
 
-          // document.getElementById('scan-region-highlight-style-select').addEventListener('change', (e) => {
-          //     videoContainer.className = e.target.value;
-          //     scanner._updateOverlay(); // reposition the highlight because style 2 sets position: relative
-          // });
+          document.getElementById('scan-region-highlight-style-select').addEventListener('change', (e) => {
+              videoContainer.className = e.target.value;
+              scanner._updateOverlay(); // reposition the highlight because style 2 sets position: relative
+          });
 
-          // document.getElementById('show-scan-region').addEventListener('change', (e) => {
-          //     const input = e.target;
-          //     const label = input.parentNode;
-          //     label.parentNode.insertBefore(scanner.$canvas, label.nextSibling);
-          //     scanner.$canvas.style.display = input.checked ? 'block' : 'none';
-          // });
+          document.getElementById('show-scan-region').addEventListener('change', (e) => {
+              const input = e.target;
+              const label = input.parentNode;
+              label.parentNode.insertBefore(scanner.$canvas, label.nextSibling);
+              scanner.$canvas.style.display = input.checked ? 'block' : 'none';
+          });
 
           document.getElementById('inversion-mode-select').addEventListener('change', event => {
               scanner.setInversionMode(event.target.value);
@@ -584,16 +585,9 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
                   .then(result => setResult(fileQrResult, result))
                   .catch(e => setResult(fileQrResult, { data: e || 'No QR code found.' }));
           });
-
-
-  }
-
-         
-   
-          
         
           
-      </script>
+      </script> -->
       <script>
         
       </script>
