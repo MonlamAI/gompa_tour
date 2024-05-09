@@ -33,7 +33,7 @@ $baseUrl = $protocol . $serverName . $webRoot;
 
 
 <!-- Page Content -->
-<div  class="container">
+<div style="width: 98%!important;" class="container">
   <div class="row">
  
   <div class="col-lg-8"style="padding-bottom: 200px; padding-top: 50px;">
