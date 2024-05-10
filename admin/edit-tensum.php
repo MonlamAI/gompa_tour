@@ -16,7 +16,7 @@ if(isset($_POST) & !empty($_POST)){
     if(empty($_POST['entitle'])){$errors[] = "English Title Field is Required";}
     if(empty($_POST['tbcontent'])){$errors[] = "Tibetan Content Field is Required";}
     if(empty($_POST['encontent'])){$errors[] = "English Content Field is Required";}
-    if(empty($_POST['callnumber'])){$errors[] = "Call Number Field is Required";}
+    if(empty($_POST['slug'])){$errors[] = "English tow char and 6 numbers feled is Rewuired";}
    
     //if(empty($_FILES['pic']['name'])){$errors[] = "You Should Upload a File";}
     if(empty($_POST['slug'])){$slug = trim($_POST['title']); }else{$slug = trim($_POST['slug']);}
@@ -221,7 +221,7 @@ include('includes/navigation.php');
                                 </div>
                                 <div class="form-group">
                                     <label>དབྱིན་ཡིག་མཚན་བྱང་།</label>
-                                    <input id="entitle" class="form-control" oninput="updateSlug()"name="entitle" placeholder="Enter Article Title" value="<?php if(isset($post['entitle'])){ echo $post['entitle'];} ?>">
+                                    <input id="entitle" class="form-control" name="entitle" placeholder="Enter Article Title" value="<?php if(isset($post['entitle'])){ echo $post['entitle'];} ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>བོད་ཡིག་འགྲེལ་བཤད།</label>
@@ -318,7 +318,7 @@ include('includes/navigation.php');
                                 }
                                 </script>
                                 <div class="form-group">
-                                    <label>སྦྲེལ་ཐག</label>
+                                    <label>སྦྲེལ་ཐག <label style="color: brown;">འདི་ནི་ཧ་ཅང་གི་གལ་ཆེན་ཡིན། དཔེར་ན། TN693842 འདི་ལྟ་བུའི་ཡི་གེ་གཉིས་དང་ཨང་གྲངས་ ༦ ངེས་པར་དགོས།</label> </label>
                                     <input id="slug" class="form-control" name="slug" placeholder="Enter Article Slug Here" value="<?php if(isset($post['slug'])){ echo $post['slug'];} ?>">
                                 </div>
                                 <input type="submit" class="btn btn-success" value="ནང་འཇུག" />

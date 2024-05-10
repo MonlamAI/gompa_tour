@@ -19,7 +19,8 @@ if(isset($_POST) & !empty($_POST)){
     if(empty($_POST['entitle'])){$errors[] = "English Title Field is Required";}
     if(empty($_POST['tbcontent'])){$errors[] = "Tibetan Content Field is Required";}
     if(empty($_POST['encontent'])){$errors[] = "English Content Field is Required";}
-    if(empty($_POST['slug'])){$slug = trim($_POST['title']); }else{$slug = trim($_POST['slug']);}
+    if(empty($_POST['slug'])){$errors[] = "English tow char and 6 numbers feled is Rewuired";}
+   // if(empty($_POST['slug'])){$slug = trim($_POST['title']); }else{$slug = trim($_POST['slug']);}
     if(empty($_FILES['pic']['name'])){$errors[] = "You Should Upload a File";}
     // check slug is unique with db query
     $search = array(" ", ",", ".", "_");
@@ -189,7 +190,7 @@ include('includes/navigation.php');
                                 </div>
                                 <div class="form-group">
                                     <label>དབྱིན་ཡིག་མཚན་བྱང་།</label>
-                                    <input id="entitle" class="form-control"oninput="updateSlug()" name="entitle" placeholder="དབྱིན་ཡིག་མཚན་བྱང་འགོད་རོགས།" value="<?php if(isset($_POST['entitle'])){ echo $_POST['entitle'];} ?>">
+                                    <input id="entitle" class="form-control" name="entitle" placeholder="དབྱིན་ཡིག་མཚན་བྱང་འགོད་རོགས།" value="<?php if(isset($_POST['entitle'])){ echo $_POST['entitle'];} ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>བོད་ཡིག་འགྲེལ་བཤད།</label>
@@ -290,7 +291,7 @@ include('includes/navigation.php');
                                 }
                                 </script>
                                 <div class="form-group">
-                                    <label>ཚད་ལྡན་སྦྲེལ་ཐག་ཡི་གེ།</label>
+                                    <label>ཚད་ལྡན་སྦྲེལ་ཐག <label style="color: brown;">འདི་ནི་ཧ་ཅང་གི་གལ་ཆེན་ཡིན། དཔེར་ན། TN693842 འདི་ལྟ་བུའི་ཡི་གེ་གཉིས་དང་ཨང་གྲངས་ ༦ ངེས་པར་དགོས།</label></label>
                                     <input id="slug" class="form-control" name="slug" placeholder="ཚད་ལྡན་སྦྲེལ་ཐག་ཡི་གེ་འགོད་དགོས" value="<?php if(isset($_POST['slug'])){ echo $_POST['slug'];} ?>">
                                 </div>
                                 <input type="submit" class="btn btn-success" value="གསར་འཇུག" />
