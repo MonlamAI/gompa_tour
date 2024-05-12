@@ -17,7 +17,7 @@ $baseUrl = getBaseUrl();
 
 ?>
 <!-- Page Content -->
-<div style="width: 97%!important;" class="container">
+<div style="width: 97%!important; min-height: 800px;" class="container">
 
   <div class="row">
 
