@@ -137,4 +137,9 @@ a{
     [class*="col-"] {
       width: 100%;
     }
+    .dropdown{
+      padding-top: 20px;
+      padding-bottom: 30px;
+    }
+
   }
