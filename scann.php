@@ -79,14 +79,14 @@ include('includes/navigation.php');
       <br>
       </p>
       
-      <button class="btn" id="start-button"style="color: white;background-color: #1081b4;">འགོ་འཛུགས།</button>
-      <button class="btn"id="stop-button">མཚམས་འཇོག</button>
+      <button class="btn" id="start-button"style="color: white;background-color: #1081b4;"><?php echo translate('start-bt'); ?></button>
+      <button class="btn"id="stop-button"><?php echo translate('end-bt'); ?></button>
       <hr>
 
-      <h5>ཡིག་ཆ་ནས་བཤེར་འབེབས།</h5>
+      <h5><?php echo translate('scan-from-file'); ?></h5>
       <input class="btn" type="file" id="file-selector">
-      <b>རྟགས་རིས་ངོས་འཛིན།: </b>
-      <span id="file-qr-result">མེད།</span>
+      <b>QR: </b>
+      <span id="file-qr-result">No</span>
      
       <!--<script src="../qr-scanner.umd.min.js"></script>-->
       <!--<script src="../qr-scanner.legacy.min.js"></script>-->
