@@ -40,7 +40,7 @@ include('includes/navigation.php');
           </label>
           <label>
               <input id="show-scan-region" type="checkbox">
-              Show scan region canvas
+              <?php echo translate('show-scan-region-canvas'); ?>
           </label>
       </div>
       <div style="display: none;">
