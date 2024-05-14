@@ -21,9 +21,7 @@ include('includes/navigation.php');
   <div class="row">
 
     <!-- Post Content Column -->
-    <div class="col-lg-8">
-
-      
+    <div class="col-lg-8">      
       <h4 class="mt-4"style="margin-left: 20px; margin-bottom: 15px;"><?php echo translate('search_qr'); ?></h4>
       
       <div class="col-lg-8" id="video-container">
