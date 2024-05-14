@@ -79,7 +79,7 @@ include('includes/navigation.php');
       <br>
       </p>
       
-      <button class="btn" id="start-button">འགོ་འཛུགས།</button>
+      <button class="btn" id="start-button"style="color: white;background-color: #1081b4;">འགོ་འཛུགས།</button>
       <button class="btn"id="stop-button">མཚམས་འཇོག</button>
       <hr>
 
