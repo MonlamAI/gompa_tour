@@ -31,9 +31,9 @@ include('includes/navigation.php');
           <label>
           <?php echo translate('high-quality'); ?>
               <select class="form-select" id="scan-region-highlight-style-select">
-                  <option value="default-style">Default style</option>
-                  <option value="example-style-1">Example custom style 1</option>
-                  <option value="example-style-2">Example custom style 2</option>
+                  <option value="default-style"><?php echo translate('default-style'); ?></option>
+                  <option value="example-style-1"><?php echo translate('example-custom-style-1'); ?></option>
+                  <option value="example-style-2"><?php echo translate('example-custom-style-2'); ?></option>
               </select>
           </label>
           <label>
