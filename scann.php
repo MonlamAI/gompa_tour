@@ -24,14 +24,14 @@ include('includes/navigation.php');
     <div class="col-lg-8">
 
       
-      <h4 class="mt-4"style="margin-left: 20px; margin-bottom: 15px;">བཤེར་འབེབས་འཚོལ་ཞིབ།</h4>
+      <h4 class="mt-4"style="margin-left: 20px; margin-bottom: 15px;"><?php echo translate('search_qr'); ?></h4>
       
       <div class="col-lg-8" id="video-container">
     <video style="transform: scaleX(-1); height: 320px;"class="col-lg video-wrapper" id="qr-video"></video>
       </div>
       <div>
           <label>
-              ཚད་མཐོའི་སྤུས་ཀ
+          <?php echo translate('high-quality'); ?>
               <select class="form-select" id="scan-region-highlight-style-select">
                   <option value="default-style">Default style</option>
                   <option value="example-style-1">Example custom style 1</option>
