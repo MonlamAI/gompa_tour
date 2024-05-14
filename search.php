@@ -22,7 +22,7 @@ $baseUrl = getBaseUrl();
   <div class="row">
 
     <!-- Post Content Column -->
-    <div class="col-lg-12">
+    <div class="col-lg-12"style="min-height: 100vh;">
 
             <form action="search.php" style="margin-top: 18px;" class="input-group custom-search-form">
     

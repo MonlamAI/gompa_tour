@@ -36,7 +36,7 @@ $baseUrl = $protocol . $serverName . $webRoot;
   <div class="row">
 
     <!-- Post Content Column -->
-    <div class="col-lg-8">
+    <div class="col-lg-8"style="min-height: 100vh;">
 
   
 
@@ -120,9 +120,9 @@ $baseUrl = $protocol . $serverName . $webRoot;
                         $web_content = $row['encontent'];
                       }
                     ?>
-                    <div style="padding-top: 20px;" class="card-body">
+                    <div style="padding-top: 20px; padding-bottom: 0px;" class="card-body">
                    
-                    <a href="organization.php?url=<?php echo $row['slug']; ?>"><h4 style="color: #1e5fa6;" class="card-title"><?php echo $titel ?></h4></a>
+                    <a href="organization.php?url=<?php echo $row['slug']; ?>"><h4 style="color: #1e5fa6;overflow: hidden!important;text-overflow: ellipsis!important;display: -webkit-box!important;max-height: 30px;-webkit-line-clamp: 2;margin: 1px;" class="card-title"><?php echo $titel ?></h4></a>
                        
                         <div style="border-bottom: 1px solid #ececec;min-height: 110px;">
                         <img style="width: 150px;object-fit: cover;flo;float: left;height: 90px;object-position: top;margin-right: 6px;position: relative;top: 0px;" class="img-fluid rounded" src="<?php echo $baseUrl ?>/<?php echo $row['pic']; ?>" alt="">  
@@ -190,9 +190,9 @@ $baseUrl = $protocol . $serverName . $webRoot;
                         $web_content = $row['encontent'];
                       }
                     ?>
-                    <div style="padding-top: 20px;" class="card-body">
+                    <div style="padding-top: 20px; padding-bottom: 0px;" class="card-body">
                    
-                    <a href="organization.php?url=<?php echo $row['slug']; ?>"><h4 style="color: #1e5fa6;" class="card-title"><?php echo $titel ?></h4></a>
+                    <a href="organization.php?url=<?php echo $row['slug']; ?>"><h4 style="color: #1e5fa6;overflow: hidden!important;text-overflow: ellipsis!important;display: -webkit-box!important;max-height: 30px;-webkit-line-clamp: 2;margin: 1px;" class="card-title"><?php echo $titel ?></h4></a>
                        
                         <div style="border-bottom: 1px solid #ececec;min-height: 110px;">
                         <img style="width: 150px;object-fit: cover;flo;float: left;height: 90px;object-position: top;margin-right: 6px;position: relative;top: 8px;" class="img-fluid rounded" src="<?php echo $baseUrl ?>/<?php echo $row['pic']; ?>" alt="">  

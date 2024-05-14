@@ -33,7 +33,7 @@ include('includes/navigation.php');
         <!-- /.col-lg-12 -->
     </div>
     <div class="row">    
-        <div class="col-xs-8 col-xs-offset-2">
+        <div class="col-xs-8 col-xs-offset-2"style="min-height: 100vh;">
             
             <form class="input-group custom-search-form">
                 <input name="search" type="text" class="form-control" placeholder="འཚོལ་ཞིབ།...">
