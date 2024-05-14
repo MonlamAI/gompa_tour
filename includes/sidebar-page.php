@@ -91,15 +91,15 @@ if($widgetcount == 1){
             <?php
             if($_SESSION['lang'] === 'en') {
               ?>
-              <a href="<?php echo "single.php?url=". $post['slug']; ?>"><?php echo $post['entitle']; ?></a>
+              <a href="<?php echo "single.php?url=". $post['slug']; ?>"style="font-size: 18px !important;font-family: sans-serif, 'Monlam';"><?php echo $post['entitle']; ?></a>
               <?php
             }else if($_SESSION['lang'] === 'bo') {
               ?>
-              <a href="<?php echo "single.php?url=". $post['slug']; ?>"><?php echo $post['tbtitle']; ?></a>
+              <a href="<?php echo "single.php?url=". $post['slug']; ?>"style="font-size: 18px !important;font-family: sans-serif, 'Monlam';"><?php echo $post['tbtitle']; ?></a>
               <?php
             } else {
               ?>
-              <a href="<?php echo "single.php?url=". $post['slug']; ?>"><?php echo $post['entitle']; ?></a>
+              <a href="<?php echo "single.php?url=". $post['slug']; ?>"style="font-size: 18px !important;font-family: sans-serif, 'Monlam';"><?php echo $post['entitle']; ?></a>
               <?php
 
             }
@@ -135,15 +135,15 @@ if($widgetcount == 1){
               <?php
             if($_SESSION['lang'] === 'en') {
               ?>
-              <a href="<?php echo "tensum.php?url=". $post['slug']; ?>"><?php echo $post['entitle']; ?></a>
+              <a href="<?php echo "tensum.php?url=". $post['slug']; ?>"style="font-size: 18px !important;font-family: sans-serif, 'Monlam';"><?php echo $post['entitle']; ?></a>
               <?php
             }else if($_SESSION['lang'] === 'bo') {
               ?>
-              <a href="<?php echo "tensum.php?url=". $post['slug']; ?>"><?php echo $post['tbtitle']; ?></a>
+              <a href="<?php echo "tensum.php?url=". $post['slug']; ?>"style="font-size: 18px !important;font-family: sans-serif, 'Monlam';"><?php echo $post['tbtitle']; ?></a>
               <?php
             } else {
               ?>
-              <a href="<?php echo "tensum.php?url=". $post['slug']; ?>"><?php echo $post['entitle']; ?></a>
+              <a href="<?php echo "tensum.php?url=". $post['slug']; ?>"style="font-size: 18px !important;font-family: sans-serif, 'Monlam';"><?php echo $post['entitle']; ?></a>
               <?php
 
             }
