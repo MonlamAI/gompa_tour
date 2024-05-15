@@ -132,6 +132,13 @@ a{
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
+.row {
+  padding-top: 20px!important;
+}
+h4.text-body-emphasis {
+padding-bottom: 10px;
+line-height: 40px;
+}
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     [class*="col-"] {
@@ -141,5 +148,13 @@ a{
       padding-top: 20px;
       padding-bottom: 30px;
     }
-
+    .row {
+      padding-top: 0px!important;
+      }
+    h4.text-body-emphasis {
+    padding-bottom: 20px;
+    line-height: 0px;
+    }
+    
   }
+  

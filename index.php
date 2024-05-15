@@ -41,7 +41,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
 <div class="p-1 text-center bg-body-tertiary rounded-3">
     
     <img class="bi mt-6 mb-3" src="vendor/img/logo.png" alt="" width="100"style="padding-top: 20px;">
-    <h4 style="padding-bottom: 20px; line-height: 40px;" class="text-body-emphasis"><?php echo htmlspecialchars(translate('home_main_title'), ENT_QUOTES, 'UTF-8'); ?></h4>
+    <h4  class="text-body-emphasis"><?php echo htmlspecialchars(translate('home_main_title'), ENT_QUOTES, 'UTF-8'); ?></h4>
     <p style="text-align: center;" class="col-lg-8 mx-auto fs-5 text-muted">
      <span style="color:#026dc4"><?php echo htmlspecialchars(translate('home_welcome_massge'), ENT_QUOTES, 'UTF-8'); ?>
      <!-- </span> <br><?php echo htmlspecialchars(translate('home_discretion'), ENT_QUOTES, 'UTF-8'); ?> 
@@ -52,7 +52,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
 </main>
 <div class="container">
 
-<div style="padding-top: 50px;" class="row ">
+<div  class="row ">
 
     
 </div>
