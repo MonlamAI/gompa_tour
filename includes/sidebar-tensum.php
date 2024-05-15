@@ -52,7 +52,7 @@ if ($widgetcount == 1) {
 ?>
   <!-- Categories Widget -->
   <div class="card my-4">
-    <h5 class="card-header">ཚོགས་སྡེའི་ཁ་བྱང་།</h5>
+    <h5 class="card-header"><?php echo translate('address'); ?></h5>
     <div class="card-body">
       <div class="row">
         <div class="col-lg-12">
