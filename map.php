@@ -178,9 +178,9 @@ googleStreets.addTo(map);
   // Layer controller
 var baseMpas ={
 "OSM": osm,
-"worldImagery": worldImagery,
 "སྒོས་གྷུལ་འཁོར་སྐར།": googleSat,
-"གྷོས་གྷུལ་སྲང་ལམ།": googleStreets
+"གྷོས་གྷུལ་སྲང་ལམ།": googleStreets,
+"worldImagery": worldImagery
 
 };
 var overlayMpas ={
