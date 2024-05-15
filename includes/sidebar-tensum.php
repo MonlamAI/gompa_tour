@@ -84,7 +84,7 @@ if ($widgetcount == 1) {
 
 
 <div class="card my-4">
-    <h5 class="card-header">ས་ཁྲ།</h5>
+    <h5 class="card-header"><?php echo translate('map'); ?></h5>
     <div class="card-body">
         <div class="row">
             <div class="col-lg-12">
@@ -104,7 +104,7 @@ if ($widgetcount == 1) {
 
 
 <div class="card my-4">
-    <h5 class="card-header">གནམ་གཤིས།</h5>
+    <h5 class="card-header"><?php echo translate('weather'); ?></h5>
     <div class="card-body">
         <div class="row">
             <div class="col-lg-12">
@@ -226,7 +226,7 @@ if ($widgetcount == 1) {
 </div>
 <!-- དུས་ཆེན། Widget -->
 <div class="card my-4">
-    <h5 class="card-header">རྟགས་རིས་ཁ་བྱང་།</h5>
+    <h5 class="card-header"><?php echo translate('qr'); ?></h5>
     <div class="card-body">
         <div class="row">
             <div class="col-lg-12">
