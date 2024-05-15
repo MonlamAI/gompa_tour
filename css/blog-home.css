@@ -155,6 +155,18 @@ line-height: 40px;
     padding-bottom: 0px;
     line-height: normal;
     }
+
+    div#map {
+      position: relative;
+      width: 108%;
+      padding: 0px;
+      margin: 0px;
+      left: -15px;
+      z-index: 9999;
+  }
+  button#full-screen {
+    display: none;
+}
     
   }
   

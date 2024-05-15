@@ -59,7 +59,7 @@ $gonpaName ="<span>ཐེག་མཆོག་རྣམ་གྲོལ་གླ�
     <div class="col-lg-12">
       <h4 style="padding-top: 50px;margin-bottom: 20px;">ས་ཁྲ་བརྒྱུད་ནས་འཚོལ་ཞིབ།</h4>
       <div style="text-align: right;">
-        <button class="btn" style="margin-bottom: 5px;" onclick="fullScreenview()"><span><i class='fa fa-arrows-alt'></i></span>  Full Screen</button>
+        <button class="btn" id="full-screen" style="margin-bottom: 5px;" onclick="fullScreenview()"><span><i class='fa fa-arrows-alt'></i></span>  Full Screen</button>
       </div>
       <div id="map"></div>
       <div style="color: rgb(5, 135, 101); font-size: 12px; padding: 6px;" class="coordinate">
