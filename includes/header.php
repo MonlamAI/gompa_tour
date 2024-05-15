@@ -22,7 +22,7 @@ require_once 'init.php';
     <link href="css/blog-home.css" rel="stylesheet">
 
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+    <link rel="manifest"href="manifest.webmanifest">
 </head>
 
 <body>
