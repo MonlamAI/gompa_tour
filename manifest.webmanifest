@@ -1,9 +1,9 @@
 {
   "name": "Gonpa Nekor",
-  "short_name": "Nekor",
+  "short_name": "Gonpa Nekor",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#fff",
+  "background_color": "#0757b5",
   "description": "Explore Monastery Wonders on Your Pilgrimage.",
   "icons": [
     {
