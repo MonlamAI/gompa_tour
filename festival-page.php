@@ -116,7 +116,7 @@ $baseUrl = $protocol . $serverName . $webRoot;
                     ?>
                     <div style="padding-top: 20px;" class="card-body">
                    
-                    <a href="organization.php?url=<?php echo $row['slug']; ?>"><h4 style="color: #1e5fa6; text-overflow: ellipsis!important; display: -webkit-box!important; max-height: 35px; -webkit-line-clamp: 2; margin: 1px; height: 35px; font-size: 23px;" class="card-title"><?php echo $titel ?></h4></a>
+                    <a href="organization.php?url=<?php echo $row['slug']; ?>"><h4 style="color: #1e5fa6;margin: 1px;font-size: 20px;line-height: 35px;" class="card-title"><?php echo $titel ?></h4></a>
                        
                         <div style="border-bottom: 1px solid #ececec;min-height: 110px;">
                         <img style="width: 150px;object-fit: cover;flo;float: left;height: 90px;object-position: top;margin-right: 6px;position: relative;top: 0px;" class="img-fluid rounded" src="<?php echo $baseUrl ?>/<?php echo $row['pic']; ?>" alt="">  
@@ -186,7 +186,7 @@ $baseUrl = $protocol . $serverName . $webRoot;
                     ?>
                     <div style="padding-top: 20px;" class="card-body">
                    
-                   <a href="organization.php?url=<?php echo $row['slug']; ?>"><h4 style="color: #1e5fa6; text-overflow: ellipsis!important; display: -webkit-box!important; max-height: 35px; -webkit-line-clamp: 2; margin: 1px; height: 35px; font-size: 23px;" class="card-title"><?php echo $titel ?></h4></a>
+                   <a href="organization.php?url=<?php echo $row['slug']; ?>"><h4 style="color: #1e5fa6;margin: 1px;font-size: 20px;line-height: 35px;" class="card-title"><?php echo $titel ?></h4></a>
                       
                        <div style="border-bottom: 1px solid #ececec;min-height: 110px;">
                        <img style="width: 150px;object-fit: cover;flo;float: left;height: 90px;object-position: top;margin-right: 6px;position: relative;" class="img-fluid rounded" src="<?php echo $baseUrl ?>/<?php echo $row['pic']; ?>" alt="">  
