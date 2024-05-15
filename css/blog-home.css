@@ -152,8 +152,8 @@ line-height: 40px;
       padding-top: 0px!important;
       }
     h4.text-body-emphasis {
-    padding-bottom: 20px;
-    line-height: 0px;
+    padding-bottom: 0px;
+    line-height: normal;
     }
     
   }
