@@ -43,7 +43,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
     <img class="bi mt-6 mb-3" src="vendor/img/logo.png" alt="" width="100"style="padding-top: 20px;">
     <h4  class="text-body-emphasis"><?php echo htmlspecialchars(translate('home_main_title'), ENT_QUOTES, 'UTF-8'); ?></h4>
     <p style="text-align: center;" class="col-lg-8 mx-auto fs-5 text-muted">
-     <span style="color:#026dc4"><?php echo htmlspecialchars(translate('home_welcome_massge'), ENT_QUOTES, 'UTF-8'); ?>
+     <span style="color:#026dc4;font-size: 20px;"><?php echo htmlspecialchars(translate('home_welcome_massge'), ENT_QUOTES, 'UTF-8'); ?>
      <!-- </span> <br><?php echo htmlspecialchars(translate('home_discretion'), ENT_QUOTES, 'UTF-8'); ?> 
     <br><a href="post-page.php"><?php echo translate('how_to_use'); ?></a> -->
     </p>
@@ -72,7 +72,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
                   <p style="color: white;text-align: center;margin-bottom: 40px;" class="card-text">
           
                     <a style="color: white;" href="scann.php">
-                   <span style="padding: 8px;"><?php echo htmlspecialchars(translate('Introduction_txt_sound'), ENT_QUOTES, 'UTF-8'); ?></span> 
+                   <span style="padding: 8px;font-size: 18px;"><?php echo htmlspecialchars(translate('Introduction_txt_sound'), ENT_QUOTES, 'UTF-8'); ?></span> 
                   </a>
                   </p>
                   <div class="d-flex justify-content-between align-items-center">
@@ -107,7 +107,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
           
                     <a style="color: white;" href="scann.php">
   
-                   <span style="padding: 8px;"><?php echo htmlspecialchars(translate('introduction_txt_sound_map'), ENT_QUOTES, 'UTF-8'); ?></span> 
+                   <span style="padding: 8px;font-size: 18px;"><?php echo htmlspecialchars(translate('introduction_txt_sound_map'), ENT_QUOTES, 'UTF-8'); ?></span> 
                   </a>
                   </p>
                   <div class="d-flex justify-content-between align-items-center">
@@ -148,7 +148,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
                   <p style="color: white;text-align: center;margin-bottom: 40px;" class="card-text">
           
                     <a style="color: white;" href="scann.php">
-                   <span style="padding: 8px;"><?php echo htmlspecialchars(translate('Introduction_txt_sound'), ENT_QUOTES, 'UTF-8'); ?></span> 
+                   <span style="padding: 8px;font-size: 18px;"><?php echo htmlspecialchars(translate('Introduction_txt_sound'), ENT_QUOTES, 'UTF-8'); ?></span> 
                   </a>
                   </p>
                   <div class="d-flex justify-content-between align-items-center">
