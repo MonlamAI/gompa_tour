@@ -46,8 +46,11 @@ $baseUrl = getBaseUrl();
           $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
           // Assuming $_SESSION['lang'] is set securely elsewhere
-          $lang = $_SESSION['lang'] ?? 'en'; // Default to English if not set
-          $showlang = $_SESSION['showlang'] ?? 'no';
+          // $lang = $_SESSION['lang'] ?? 'en'; // Default to English if not set
+          $lang ='en'; // Default to English if not set
+          
+          // $showlang = $_SESSION['showlang'] ?? 'no';
+          $showlang ='no';
 
           foreach ($res as $cat) {
               $link = htmlspecialchars($baseUrl . $cat['link']);

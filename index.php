@@ -1,9 +1,9 @@
 <?php 
 session_start();
+
 require_once('includes/connect.php');
 include('includes/header.php');
 include('includes/navigation.php'); 
-
 
 
 // get number of per page results from settings table
