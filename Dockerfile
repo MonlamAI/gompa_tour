@@ -14,16 +14,9 @@ RUN apt-get update && \
     apt-get install -y zip unzip && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Run composer install
-RUN composer clear-cache
-RUN composer self-update
-
-# Copy the entrypoint script into the container
-COPY docker-entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 # Expose the port Apache listens on
 EXPOSE 80
 
-# Use the entrypoint script as the command to be executed when the container starts
-CMD ["docker-entrypoint.sh"]
+# Start Apache when the container runs
+CMD ["apache2-foreground"]
