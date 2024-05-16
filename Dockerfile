@@ -10,7 +10,8 @@ COPY . .
 # Install PHP extensions and other dependencies
 RUN apt-get update && \
     apt-get install -y libpng-dev && \
-    docker-php-ext-install pdo pdo_mysql gd
+    docker-php-ext-install pdo pdo_mysql gd && \
+    composer install
 
 # Expose the port Apache listens on
 EXPOSE 80
