@@ -17,9 +17,14 @@ RUN apt-get update && \
 # Run composer install
 RUN composer clear-cache
 RUN composer self-update
+RUN composer install --verbose --no-dev --no-interaction --optimize-autoloader
+
+# Copy the entrypoint script into the container
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 # Expose the port Apache listens on
 EXPOSE 80
 
-# Start Apache when the container runs
-CMD ["apache2-foreground"]
+# Use the entrypoint script as the command to be executed when the container starts
+CMD ["docker-entrypoint.sh"]
