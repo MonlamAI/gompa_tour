@@ -16,7 +16,6 @@ RUN apt-get update && \
 
 # Run composer install
 RUN composer clear-cache
-RUN composer install --no-dev
 # Expose the port Apache listens on
 EXPOSE 80
 
