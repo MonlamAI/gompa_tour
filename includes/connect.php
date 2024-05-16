@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
-Dotenv\Dotenv::createUnsafeImmutable(__DIR__ . '/../')->load();
+Dotenv\Dotenv::createImmutable(__DIR__ . '/../')->load();
 
 $host = getenv('SQL_DB_HOST'); // Fallback to 'sql_db' if the environment variable is not set
 $dbname = getenv('SQL_DATABASE_NAME'); // Fallback to 'cta_nekor_data' if the environment variable is not set
