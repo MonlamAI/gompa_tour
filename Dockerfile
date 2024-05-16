@@ -15,7 +15,10 @@ RUN apt-get update && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Run composer install
-RUN composer install --no-dev --no-interaction --optimize-autoloader
+RUN composer clear-cache
+RUN composer self-update
+RUN composer install --verbose --no-dev --no-interaction --optimize-autoloader
+
 
 # Expose the port Apache listens on
 EXPOSE 80
