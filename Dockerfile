@@ -17,7 +17,6 @@ RUN apt-get update && \
 # Run composer install
 RUN composer clear-cache
 RUN composer self-update
-RUN composer install --verbose --no-dev --no-interaction --optimize-autoloader
 
 # Copy the entrypoint script into the container
 COPY docker-entrypoint.sh /usr/local/bin/
