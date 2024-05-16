@@ -10,7 +10,12 @@ COPY . .
 # Install PHP extensions and other dependencies
 RUN apt-get update && \
     apt-get install -y libpng-dev && \
-    docker-php-ext-install pdo pdo_mysql gd 
+    docker-php-ext-install pdo pdo_mysql gd && \
+    apt-get install -y zip unzip && \
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Run composer install
+RUN composer install --no-dev --no-interaction --optimize-autoloader
 
 # Expose the port Apache listens on
 EXPOSE 80
