@@ -13,8 +13,7 @@ RUN apt-get update && \
     docker-php-ext-install pdo pdo_mysql gd && \
     apt-get install -y zip unzip && \
     apt-get install -y git && \   
-    git submodule update --init --recursive && \ 
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    git submodule update --init --recursive 
 
 # Run composer install
 RUN composer clear-cache
