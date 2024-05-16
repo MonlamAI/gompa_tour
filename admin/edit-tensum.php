@@ -233,7 +233,7 @@ include('includes/navigation.php');
                                 </div>
                                 <div class="form-group col-lg-6">
                                 <?php if(isset($post['pic']) && !empty($post['pic'])): ?>
-                                    <img style="object-fit: cover; border-radius: 5px; margin-right: 6px;" src="<?php echo htmlspecialchars('../' . $post['pic']); ?>" height="70" width="100">
+                                    <img style="object-fit: cover; border-radius: 5px; margin-right: 6px;" src="<?php echo htmlspecialchars($post['pic']); ?>" height="70" width="100">
                                     <a href="delete-pic.php?id=<?php echo urlencode($_GET['id']); ?>&type=tensum">པར་རིས་གསུབ།</a>
                                 <?php else: ?>
                                     <label for="pic">པར་རིས།</label>
@@ -242,7 +242,7 @@ include('includes/navigation.php');
                                 <?php endif; ?>
                                 
                                 <?php if(isset($post['sound']) && !empty($post['sound'])): ?>
-                                    <audio controls style="margin-right: 6px;" src="<?php echo htmlspecialchars('../' . $post['sound']); ?>"></audio>
+                                    <audio controls style="margin-right: 6px;" src="<?php echo htmlspecialchars($post['sound']); ?>"></audio>
                                     <a href="delete-sound.php?id=<?php echo urlencode($_GET['id']); ?>&type=tensum">སྒྲ་གསུབ།</a>
                                 <?php else: ?>
                                     <label for="sound">རྟེན་བཤད་འདིའི་སྒྲ།</label>
