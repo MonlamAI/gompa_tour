@@ -1,7 +1,9 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-
-Dotenv\Dotenv::createImmutable(__DIR__ . '/../')->load();
+$dotenvFile = __DIR__ . '/../.env';
+if (file_exists($dotenvFile)) {
+    Dotenv\Dotenv::createUnsafeImmutable(__DIR__ . '/../')->load();
+}
 use Aws\S3\S3Client;
 use Aws\S3\Exception\S3Exception;
 
