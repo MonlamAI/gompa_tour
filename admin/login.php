@@ -64,7 +64,7 @@ if (isset($_POST) && !empty($_POST)) {
                 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
                 $currentDir = dirname($_SERVER['REQUEST_URI']);
 
-                header("location:$protocol://$domain$currentDir/admin/dashboard.php");
+                header("location:$protocol://$domain$currentDir/dashboard.php");
                 exit;
             } else {
                 $errors[] = "User Name / E-Mail & Password Combination not Working";
