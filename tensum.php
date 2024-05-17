@@ -1,9 +1,9 @@
-<?php 
+<?php
 session_start();
-require_once('includes/connect.php');
-include('includes/header.php');
-include('comment.php');
-include('includes/navigation.php'); 
+require_once ('includes/connect.php');
+include ('includes/header.php');
+include ('comment.php');
+include ('includes/navigation.php');
 // Check if HTTPS is used, otherwise default to HTTP
 $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 // Get the server name (e.g., www.example.com)
@@ -13,7 +13,7 @@ $port = $_SERVER['SERVER_PORT'];
 
 // If the port is not standard, include it in the URL
 if (($protocol === "https://" && $port != 443) || ($protocol === "http://" && $port != 80)) {
-    $serverName .= ":" . $port;
+  $serverName .= ":" . $port;
 }
 // Get the web root path (if your application is in a subdirectory e.g., /myapp)
 $webRoot = dirname($_SERVER['PHP_SELF']);
@@ -29,13 +29,13 @@ $usersql = "SELECT * FROM users WHERE id=?";
 $userresult = $db->prepare($usersql);
 $userresult->execute(array($post['uid']));
 $user = $userresult->fetch(PDO::FETCH_ASSOC);
-if($_SESSION['lang'] === 'en'){
+if ($_SESSION['lang'] === 'en') {
   $titel = $post['entitle'];
   $web_content = $post['encontent'];
-}else if($_SESSION['lang'] === 'bo'){
+} else if ($_SESSION['lang'] === 'bo') {
   $titel = $post['tbtitle'];
   $web_content = $post['tbcontent'];
-}else{
+} else {
   $titel = $post['entitle'];
   $web_content = $post['encontent'];
 }
@@ -50,70 +50,74 @@ if($_SESSION['lang'] === 'en'){
       <h4 style="margin-bottom: 20px; line-height: 35px; " class="mt-4"><?php echo $titel; ?></h4>
       <!-- Author -->
       <!-- Preview Image -->
-      <?php if(isset($post['pic']) & !empty($post['pic'])){ ?>
-          <img style="width: 100%;object-fit: cover;" class="img-fluid rounded" src="<?php echo $baseUrl?>/<?php echo $post['pic']; ?>" alt="">
-      <?php }else{ ?>
-          <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+      <?php if (isset($post['pic']) & !empty($post['pic'])) { ?>
+        <img style="width: 100%;object-fit: cover;" class="img-fluid rounded" src="<?php echo $post['pic']; ?>" alt="">
+      <?php } else { ?>
+        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
       <?php } ?>
       <hr>
       <!-- Post Content -->
-      <?php 
-      if($_SESSION['lang'] === 'en'){
+      <?php
+      if ($_SESSION['lang'] === 'en') {
         ?>
-       <div style="background: #eceae8;border-radius: 5px;padding: 4px;">
-      <button style="color: #f7fdff;background-color: #676b6a;" type="button" onclick="readText()" class="btn play-word">
-        <i class="fa fa-play-circle"></i>
-        </button>
-        <button style="color: #f75555;background-color: #686b6a;" type="button" onclick="stopText()" class="btn stop-word">
-        <i class="fa fa-stop-circle"></i>
-      </button>
-      <span style="color: #797777;font-size: 14px;font-family: Monlam;">Text to Read in English</span>
-            <script>
+        <div style="background: #eceae8;border-radius: 5px;padding: 4px;">
+          <button style="color: #f7fdff;background-color: #676b6a;" type="button" onclick="readText()"
+            class="btn play-word">
+            <i class="fa fa-play-circle"></i>
+          </button>
+          <button style="color: #f75555;background-color: #686b6a;" type="button" onclick="stopText()"
+            class="btn stop-word">
+            <i class="fa fa-stop-circle"></i>
+          </button>
+          <span style="color: #797777;font-size: 14px;font-family: Monlam;">Text to Read in English</span>
+          <script>
             var currentSpeech = null;
 
             function readText() {
-                if (window.speechSynthesis.speaking || window.speechSynthesis.paused) {
-                    return; // Already speaking or paused, so do nothing.
-                }
+              if (window.speechSynthesis.speaking || window.speechSynthesis.paused) {
+                return; // Already speaking or paused, so do nothing.
+              }
 
-                var textElement = document.getElementById('textToRead');
-                var text = textElement.textContent || textElement.innerText;
-                
-                var speech = new SpeechSynthesisUtterance(text);
-                speech.lang = 'en-US'; // Set language to English
+              var textElement = document.getElementById('textToRead');
+              var text = textElement.textContent || textElement.innerText;
 
-                currentSpeech = speech; // Keep a reference to the current speech
-                
-                window.speechSynthesis.speak(speech);
+              var speech = new SpeechSynthesisUtterance(text);
+              speech.lang = 'en-US'; // Set language to English
+
+              currentSpeech = speech; // Keep a reference to the current speech
+
+              window.speechSynthesis.speak(speech);
             }
 
             function stopText() {
-                if (window.speechSynthesis.speaking || window.speechSynthesis.paused) {
-                    window.speechSynthesis.cancel(); // This will stop the speech
-                    currentSpeech = null;
-                }
+              if (window.speechSynthesis.speaking || window.speechSynthesis.paused) {
+                window.speechSynthesis.cancel(); // This will stop the speech
+                currentSpeech = null;
+              }
             }
 
-            speechSynthesis.onvoiceschanged = function() {
-                // Voices are loaded, you can now set a specific voice if needed.
+            speechSynthesis.onvoiceschanged = function () {
+              // Voices are loaded, you can now set a specific voice if needed.
             };
           </script>
 
-          </div>
+        </div>
         <?php
-        
-      }else if($_SESSION['lang'] === 'bo'){
+
+      } else if ($_SESSION['lang'] === 'bo') {
         ?>
-        <audio style="width: 100%;" controls>
-        <source src="<?php echo $baseUrl?>/<?php echo $post['sound']; ?>" type="audio/mp3">
-        Your browser does not support the audio element.
-        </audio>
+          <audio style="width: 100%;" controls>
+            <source src="<?php echo $baseUrl ?>/<?php echo $post['sound']; ?>" type="audio/mp3">
+            Your browser does not support the audio element.
+          </audio>
         <?php
-        
+
       }
       ?>
-      
-      <div id="textToRead" style="line-height: 30px; padding: 0px 0px 100px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 15px;" class="content">
+
+      <div id="textToRead"
+        style="line-height: 30px; padding: 0px 0px 100px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 15px;"
+        class="content">
         <?php echo $web_content; ?>
       </div>
       <div>
@@ -121,90 +125,90 @@ if($_SESSION['lang'] === 'en'){
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
         <hr>
         <script>
-        let msg; // Define outside to make it reusable
+          let msg; // Define outside to make it reusable
 
-        function populateVoiceList() {
-        var voices = window.speechSynthesis.getVoices();
-        var voiceSelect = document.getElementById('voiceSelection');
+          function populateVoiceList() {
+            var voices = window.speechSynthesis.getVoices();
+            var voiceSelect = document.getElementById('voiceSelection');
 
-        voices.forEach((voice, index) => {
-        var option = document.createElement('option');
-        option.textContent = voice.name + ' (' + voice.lang + ')';
-        
-        // Optionally, try to infer gender from the voice name
-        if(voice.name.toLowerCase().includes('female') || voice.name.toLowerCase().includes('woman')) {
-            option.textContent += ' - Female';
-        } else if(voice.name.toLowerCase().includes('male') || voice.name.toLowerCase().includes('man')) {
-            option.textContent += ' - Male';
-        }
+            voices.forEach((voice, index) => {
+              var option = document.createElement('option');
+              option.textContent = voice.name + ' (' + voice.lang + ')';
 
-          option.setAttribute('value', index);
-          voiceSelect.appendChild(option);
-        });
-        }
-        function speakText() {
-        // Stop current speech if any
-        window.speechSynthesis.cancel();
-        // Get the selected voice
-        var selectedVoiceIndex = document.getElementById('voiceSelection').value;
-        var voices = window.speechSynthesis.getVoices();
+              // Optionally, try to infer gender from the voice name
+              if (voice.name.toLowerCase().includes('female') || voice.name.toLowerCase().includes('woman')) {
+                option.textContent += ' - Female';
+              } else if (voice.name.toLowerCase().includes('male') || voice.name.toLowerCase().includes('man')) {
+                option.textContent += ' - Male';
+              }
 
-        // Get the text from the div
-        var text = document.getElementById("textToRead").innerText;
+              option.setAttribute('value', index);
+              voiceSelect.appendChild(option);
+            });
+          }
+          function speakText() {
+            // Stop current speech if any
+            window.speechSynthesis.cancel();
+            // Get the selected voice
+            var selectedVoiceIndex = document.getElementById('voiceSelection').value;
+            var voices = window.speechSynthesis.getVoices();
+
+            // Get the text from the div
+            var text = document.getElementById("textToRead").innerText;
             // Create a new speech synthesis utterance with the selected voice
             msg = new SpeechSynthesisUtterance(text);
             msg.voice = voices[selectedVoiceIndex];
             // Speak the text
             window.speechSynthesis.speak(msg);
-        }
+          }
 
-        // Populate voice list when voices are loaded
-        window.speechSynthesis.onvoiceschanged = populateVoiceList;
+          // Populate voice list when voices are loaded
+          window.speechSynthesis.onvoiceschanged = populateVoiceList;
 
-        function stopText() {
-        // Stop the speech synthesis
-        window.speechSynthesis.cancel();
-        }
-        function reReadText() {
-          // Stop the current speech and start over
-          speakText();
-        }
+          function stopText() {
+            // Stop the speech synthesis
+            window.speechSynthesis.cancel();
+          }
+          function reReadText() {
+            // Stop the current speech and start over
+            speakText();
+          }
 
         </script>
-          </div>
-          <?php
-          require_once 'vendor/phpqrcode/qrlib.php';
-          
-          if(isset($post['slug'])){                                  
-          $text =$baseUrl.'/tensum.php?url='.$post['slug'].'';
-          $qtex = str_replace(" ", "",$text);
-          
-          // Start output buffering
-          ob_start();
-          // Generate the QR code and output it directly to the buffer
-          QRcode::png($text, null, QR_ECLEVEL_L, 3, 2);
-          // Capture the buffered output into a variable
-          $imageString = ob_get_contents();
-          // Clean (erase) the output buffer and turn off output buffering
-          ob_end_clean();
+      </div>
+      <?php
+      require_once 'vendor/phpqrcode/qrlib.php';
 
-          // Encode the image in base64 format
-         $imageData = base64_encode($imageString);
+      if (isset($post['slug'])) {
+        $text = $baseUrl . '/tensum.php?url=' . $post['slug'] . '';
+        $qtex = str_replace(" ", "", $text);
 
-          // Generate the HTML code for the image
-          ?>
-          <div style="text-align: center;">
+        // Start output buffering
+        ob_start();
+        // Generate the QR code and output it directly to the buffer
+        QRcode::png($text, null, QR_ECLEVEL_L, 3, 2);
+        // Capture the buffered output into a variable
+        $imageString = ob_get_contents();
+        // Clean (erase) the output buffer and turn off output buffering
+        ob_end_clean();
+
+        // Encode the image in base64 format
+        $imageData = base64_encode($imageString);
+
+        // Generate the HTML code for the image
+        ?>
+        <div style="text-align: center;">
           <?php
           echo '<img src="data:image/png;base64,' . $imageData . '" />';
           ?>
         </div>
-        <?php                               
-        }
-        ?>
-        <div style="padding-bottom: 200px;"> 
-        </div>
+        <?php
+      }
+      ?>
+      <div style="padding-bottom: 200px;">
+      </div>
     </div>
-    <?php include('includes/sidebar-page.php'); ?>
+    <?php include ('includes/sidebar-page.php'); ?>
 
   </div>
   <!-- /.row -->
@@ -212,4 +216,4 @@ if($_SESSION['lang'] === 'en'){
 </div>
 </div>
 <!-- /.container -->
-<?php include('includes/footer.php'); ?>
+<?php include ('includes/footer.php'); ?>
