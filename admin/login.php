@@ -1,5 +1,5 @@
 <?php
-require_once ('../includes/init.php');
+
 require_once ('../includes/connect.php');
 require_once ('includes/if-loggedin.php');
 include ('includes/header.php');
