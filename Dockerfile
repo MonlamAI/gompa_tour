@@ -14,7 +14,9 @@ RUN apt-get update && \
     apt-get install -y zip unzip && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-COPY php.ini /usr/local/etc/php/conf.d/php.ini
+COPY php.ini /usr/local/etc/php/php.ini-development
+COPY php.ini /usr/local/etc/php/php.ini-production
+
 # Run composer install
 RUN composer clear-cache
 # Expose the port Apache listens on
