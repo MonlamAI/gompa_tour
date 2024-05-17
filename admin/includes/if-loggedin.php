@@ -20,8 +20,7 @@ if ((basename($_SERVER['PHP_SELF']) == 'login.php') || (basename($_SERVER['PHP_S
 		} elseif ($user['role'] == 'subscriber') {
 			//echo "role: subscriber";
 			// redirect to Blog Home page
-			echo "redirect to index.php";
-			// header("location: ../index.php");
+			header("location: logout.php");
 		}
 	}
 }
