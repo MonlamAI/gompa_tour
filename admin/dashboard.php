@@ -415,7 +415,7 @@ include('includes/navigation.php');
             
         </div>
         <!-- /.col-lg-8 -->
-        <div class="col-lg-4">
+        <!-- <div class="col-lg-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <i class="fa fa-bell fa-fw"></i> ཉེ་ཆར་གྱི་མཆན།
@@ -440,7 +440,7 @@ include('includes/navigation.php');
             </div>
             <!-- /.panel -->
             
-        </div>
+        </div> -->
         <!-- /.col-lg-4 -->
         
         
