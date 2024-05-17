@@ -1,19 +1,16 @@
 <?php
+session_start();
+
 if (isset($_SESSION['login']) & ($_SESSION['login'] == true)) {
+	if (isset($_SESSION['id']) & !empty($_SESSION['id'])) {
+		if (isset($_SESSION['last_login']) & !empty($_SESSION['last_login'])) {
+		}
+	}
 } else {
 	// redirect user to login page
 	header('location:login.php');
 }
-if (isset($_SESSION['id']) & !empty($_SESSION['id'])) {
-} else {
-	// redirect user to login page
-	header('location:login.php');
-}
-if (isset($_SESSION['last_login']) & !empty($_SESSION['last_login'])) {
-} else {
-	// redirect user to login page
-	header('location:login.php');
-}
+
 
 if (isset($_SESSION['id']) & !empty($_SESSION['id'])) {
 	$sql = "SELECT * FROM users WHERE id=?";
@@ -27,4 +24,5 @@ if (isset($_SESSION['id']) & !empty($_SESSION['id'])) {
 		header("location: admin/dashboard.php");
 	}
 }
+
 ?>

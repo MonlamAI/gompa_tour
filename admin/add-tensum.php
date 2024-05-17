@@ -38,8 +38,8 @@ if (isset($_POST) & !empty($_POST)) {
         $errors[] = "You Should Upload a File";
     }
     // check slug is unique with db query
-   // $search = array(" ", ",", ".", "_");
-   // $slug = strtolower(str_replace($search, '-', $slug));
+    // $search = array(" ", ",", ".", "_");
+    // $slug = strtolower(str_replace($search, '-', $slug));
     $sql = "SELECT * FROM tensum WHERE slug=?";
     $result = $db->prepare($sql);
     //$result->execute(array($slug));

@@ -1,7 +1,6 @@
 <?php
-session_start();
 include ('../includes/connect.php');
-require_once ('includes/check-login.php');
+require ('includes/check-login.php');
 include ('includes/check-subscriber.php');
 include ('includes/header.php');
 include ('includes/navigation.php');

@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once ('../includes/connect.php');
-include ('includes/if-loggedin.php');
+require_once ('includes/if-loggedin.php');
 include ('includes/header.php');
 
 if (isset($_POST) && !empty($_POST)) {

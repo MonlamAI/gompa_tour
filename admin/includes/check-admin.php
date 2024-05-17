@@ -11,7 +11,10 @@ if (($user['role'] == 'editor') || ($user['role'] == 'subscriber')) {
 	$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
 	$currentDir = dirname($_SERVER['REQUEST_URI']);
 	header("location: dashboard.php");
+	exit;
 } elseif ($user['role'] == 'administrator') {
 	// do nothing
+	header("location: dashboard.php");
+	exit;
 }
 ?>
