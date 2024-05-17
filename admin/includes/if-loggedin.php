@@ -1,21 +1,27 @@
 <?php
 // check the page
 //echo basename($_SERVER['PHP_SELF']);
-if((basename($_SERVER['PHP_SELF']) == 'login.php') || (basename($_SERVER['PHP_SELF']) == 'register.php')){
-	if(isset($_SESSION['id']) & !empty($_SESSION['id'])){
+if ((basename($_SERVER['PHP_SELF']) == 'login.php') || (basename($_SERVER['PHP_SELF']) == 'register.php')) {
+	if (isset($_SESSION['id']) & !empty($_SESSION['id'])) {
 		$sql = "SELECT * FROM users WHERE id=?";
 		$result = $db->prepare($sql);
 		$result->execute(array($_SESSION['id']));
-		$user = $result->fetch(PDO::FETCH_ASSOC); 
+		$user = $result->fetch(PDO::FETCH_ASSOC);
 
-		if(($user['role'] == 'administrator') || ($user['role'] == 'editor')){
+
+		$domain = $_SERVER['HTTP_HOST'];
+		$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+		$currentDir = dirname($_SERVER['REQUEST_URI']);
+
+		if (($user['role'] == 'administrator') || ($user['role'] == 'editor')) {
 			//echo "role: admin/editor";
 			// redirect to dashboard page
-			header("location: https://gompatour.com/admin/dashboard.php");
-		}elseif($user['role'] == 'subscriber'){
+			header("location: dashboard.php");
+		} elseif ($user['role'] == 'subscriber') {
 			//echo "role: subscriber";
 			// redirect to Blog Home page
-			header("location: https://gompatour.com/admin/index.php");
+			echo "redirect to index.php";
+			// header("location: ../index.php");
 		}
 	}
 }
