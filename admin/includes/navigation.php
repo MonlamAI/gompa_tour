@@ -11,7 +11,7 @@
     </div>
     <!-- /.navbar-header -->
 
-    <ul style="float: right;"class="nav navbar-top-links navbar-right">
+    <ul style="float: right;" class="nav navbar-top-links navbar-right">
 
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -23,7 +23,7 @@
                 <li><a href="settings.php"><i class="fa fa-gear fa-fw"></i> སྒྲིག་འགོད།</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> ཕྱིར་འབུད།</a>
+                <li><a href="/logout.php"><i class="fa fa-sign-out fa-fw"></i> ཕྱིར་འབུད།</a>
                 </li>
             </ul>
             <!-- /.dropdown-user -->
@@ -37,14 +37,14 @@
             <ul class="nav" id="side-menu">
                 <li class="sidebar-search">
                     <div class="input-group custom-search-form">
-                    <form class="input-group custom-search-form">
-                <input name="search" type="text" class="form-control" placeholder="འཚོལ་ཞིབ།...">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit">
-                            <i class="fa fa-search"></i>
-                    </button>
-                </span>
-                </form>
+                        <form class="input-group custom-search-form">
+                            <input name="search" type="text" class="form-control" placeholder="འཚོལ་ཞིབ།...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </form>
                     </div>
                     <!-- /input-group -->
                 </li>
@@ -150,62 +150,62 @@
                 <li>
                     <a href="comments.php"><i class="fa fa-commenting"></i> མཆན།</a>
                 </li>
-                <?php 
-                    $sql = "SELECT * FROM users WHERE id=?";
-                    $result = $db->prepare($sql);
-                    $result->execute(array($_SESSION['id']));
-                    $user = $result->fetch(PDO::FETCH_ASSOC); 
-                    if($user['role'] == 'administrator'){
-                ?>
-                <li>
-                    <a href="#"><i class="fa fa-users"></i> ཐོ་ཞུགས་པ།<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="add-user.php"> ཐོ་ཞུགས་པ་གསར་སྣོན།</a>
-                        </li>
-                        <li>
-                            <a href="view-users.php"> ཐོ་ཞུགས་པའི་རེའུ་མིག</a>
-                        </li>
-                        <li>
-                            <a href="profile.php"> ངའི་ཐོ་དེབ།</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
-                <li>
-                    <a href="#"><i class='fa fa-envelope'></i> འབྲེལ་གཏུགས།<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="view-contact-massage.php"> ཡིག་ཆུང་རེའུ་མིག</a>
-                        </li>
-                       
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
-                <li>
-                    <a href="#"><i class='fa fa-sticky-note'></i> ཟུར་སྦྱར།<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="add-widget.php"> ཟུར་སྦྱར་གསར་འཇུག</a>
-                        </li>
-                        <li>
-                            <a href="view-widgets.php"> ཟུར་སྦྱར་རེའུ་མིག</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-gears"></i> སྒྲིགས་འགོད།<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="settings.php"> དྲ་བའི་སྒྲིགས་འགོད།</a>
-                        </li>
-                        <li>
-                            <a href="#"> སྦྱིར་བཏང་གི་རྩོམ་སྒྲིགས།</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
+                <?php
+                $sql = "SELECT * FROM users WHERE id=?";
+                $result = $db->prepare($sql);
+                $result->execute(array($_SESSION['id']));
+                $user = $result->fetch(PDO::FETCH_ASSOC);
+                if ($user['role'] == 'administrator') {
+                    ?>
+                    <li>
+                        <a href="#"><i class="fa fa-users"></i> ཐོ་ཞུགས་པ།<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="add-user.php"> ཐོ་ཞུགས་པ་གསར་སྣོན།</a>
+                            </li>
+                            <li>
+                                <a href="view-users.php"> ཐོ་ཞུགས་པའི་རེའུ་མིག</a>
+                            </li>
+                            <li>
+                                <a href="profile.php"> ངའི་ཐོ་དེབ།</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class='fa fa-envelope'></i> འབྲེལ་གཏུགས།<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="view-contact-massage.php"> ཡིག་ཆུང་རེའུ་མིག</a>
+                            </li>
+
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class='fa fa-sticky-note'></i> ཟུར་སྦྱར།<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="add-widget.php"> ཟུར་སྦྱར་གསར་འཇུག</a>
+                            </li>
+                            <li>
+                                <a href="view-widgets.php"> ཟུར་སྦྱར་རེའུ་མིག</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-gears"></i> སྒྲིགས་འགོད།<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="settings.php"> དྲ་བའི་སྒྲིགས་འགོད།</a>
+                            </li>
+                            <li>
+                                <a href="#"> སྦྱིར་བཏང་གི་རྩོམ་སྒྲིགས།</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
                 <?php } ?>
             </ul>
         </div>
@@ -214,6 +214,3 @@
     <!-- /.navbar-static-side -->
 </nav>
 <!-- jQuery -->
-
-
-
