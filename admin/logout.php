@@ -9,6 +9,6 @@ $domain = $_SERVER['HTTP_HOST'];
 $currentDir = $protocol . "://" . $domain . "/logout.php";
 echo "" . $currentDir . "";
 // Redirect to the logout page
-header("Location: " . $currentDir);
+header("Location: https://gompatour.com/logout.php");
 exit;
 ?>
