@@ -5,4 +5,6 @@ session_destroy();
 //require_once('../includes/connect.php');
 // redirect user to login page
 header('location: index.php');
+
+exit;
 ?>
