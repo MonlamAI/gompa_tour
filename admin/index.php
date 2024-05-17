@@ -1,10 +1,10 @@
-<?php 
+<?php
 session_start();
-require_once('../includes/connect.php');
-include('includes/check-login.php');
-include('includes/check-subscriber.php');
-include('includes/header.php');
-include('includes/navigation.php');  
+include ('../includes/connect.php');
+include ('includes/check-login.php');
+include ('includes/check-subscriber.php');
+include ('includes/header.php');
+include ('includes/navigation.php');
 ?>
 <div id="page-wrapper">
     <div class="row">
@@ -23,13 +23,13 @@ include('includes/navigation.php');
                             <i class="fa fa-comments fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <?php 
-                                $sql = "SELECT * FROM comments";
-                                $result = $db->prepare($sql);
-                                $result->execute();
-                                $comments = $result->fetchAll(PDO::FETCH_ASSOC); 
-                                $commentscount = $result->rowCount();
-                             ?>
+                            <?php
+                            $sql = "SELECT * FROM comments";
+                            $result = $db->prepare($sql);
+                            $result->execute();
+                            $comments = $result->fetchAll(PDO::FETCH_ASSOC);
+                            $commentscount = $result->rowCount();
+                            ?>
                             <div class="huge"><?php echo $commentscount; ?></div>
                             <div>Total Comments!</div>
                         </div>
@@ -52,12 +52,12 @@ include('includes/navigation.php');
                             <i class="fa fa-tasks fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <?php 
-                                $sql = "SELECT * FROM posts WHERE status='published'";
-                                $result = $db->prepare($sql);
-                                $result->execute(); 
-                                $publishedcount = $result->rowCount();
-                             ?>
+                            <?php
+                            $sql = "SELECT * FROM posts WHERE status='published'";
+                            $result = $db->prepare($sql);
+                            $result->execute();
+                            $publishedcount = $result->rowCount();
+                            ?>
                             <div class="huge"><?php echo $publishedcount; ?></div>
                             <div>Published Articles!</div>
                         </div>
@@ -80,12 +80,12 @@ include('includes/navigation.php');
                             <i class="fa fa-shopping-cart fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <?php 
-                                $sql = "SELECT * FROM posts WHERE status='draft'";
-                                $result = $db->prepare($sql);
-                                $result->execute(); 
-                                $draftcount = $result->rowCount();
-                             ?>
+                            <?php
+                            $sql = "SELECT * FROM posts WHERE status='draft'";
+                            $result = $db->prepare($sql);
+                            $result->execute();
+                            $draftcount = $result->rowCount();
+                            ?>
                             <div class="huge"><?php echo $draftcount; ?></div>
                             <div>Draft Articles!</div>
                         </div>
@@ -124,24 +124,24 @@ include('includes/navigation.php');
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php 
-                                            $sql = "SELECT * FROM posts";
-                                            $result = $db->prepare($sql);
-                                            $result->execute(); 
-                                            $posts = $result->fetchAll(PDO::FETCH_ASSOC);
-                                            foreach ($posts as $post) {
-                                                $usersql = "SELECT * FROM users WHERE id=?";
-                                                $userresult = $db->prepare($usersql);
-                                                $userresult->execute(array($post['uid']));
-                                                $user = $userresult->fetch(PDO::FETCH_ASSOC);
-                                         ?>
-                                        <tr>
-                                            <td><?php echo $post['id']; ?></td>
-                                            <td><?php echo $post['tbtitle']; ?></td>
-                                            <td><?php echo $user['username']; ?></td>
-                                            <td><?php echo $post['status']; ?></td>
-                                        </tr>
-                                    <?php } ?>
+                                        <?php
+                                        $sql = "SELECT * FROM posts";
+                                        $result = $db->prepare($sql);
+                                        $result->execute();
+                                        $posts = $result->fetchAll(PDO::FETCH_ASSOC);
+                                        foreach ($posts as $post) {
+                                            $usersql = "SELECT * FROM users WHERE id=?";
+                                            $userresult = $db->prepare($usersql);
+                                            $userresult->execute(array($post['uid']));
+                                            $user = $userresult->fetch(PDO::FETCH_ASSOC);
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $post['id']; ?></td>
+                                                <td><?php echo $post['tbtitle']; ?></td>
+                                                <td><?php echo $user['username']; ?></td>
+                                                <td><?php echo $post['status']; ?></td>
+                                            </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -154,7 +154,7 @@ include('includes/navigation.php');
                 <!-- /.panel-body -->
             </div>
             <!-- /.panel -->
-            
+
         </div>
         <!-- /.col-lg-8 -->
         <div class="col-lg-4">
@@ -165,15 +165,15 @@ include('includes/navigation.php');
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <div class="list-group">
-                        <?php 
-                            foreach ($comments as $comment) {
-                         ?>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-comment fa-fw"></i> <?php echo substr($comment['comment'],0,10); ?>
-                            <span class="pull-right text-muted small"><em><?php echo $comment['created']; ?></em>
-                            </span>
-                        </a>
-                    <?php } ?>
+                        <?php
+                        foreach ($comments as $comment) {
+                            ?>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-comment fa-fw"></i> <?php echo substr($comment['comment'], 0, 10); ?>
+                                <span class="pull-right text-muted small"><em><?php echo $comment['created']; ?></em>
+                                </span>
+                            </a>
+                        <?php } ?>
                     </div>
                     <!-- /.list-group -->
                     <a href="comments.php" class="btn btn-default btn-block">View All Comments</a>
@@ -181,11 +181,11 @@ include('includes/navigation.php');
                 <!-- /.panel-body -->
             </div>
             <!-- /.panel -->
-            
+
         </div>
         <!-- /.col-lg-4 -->
     </div>
     <!-- /.row -->
 </div>
 <!-- /#page-wrapper -->
-<?php include('includes/footer.php'); ?>
+<?php include ('includes/footer.php'); ?>
