@@ -15,7 +15,10 @@ if (isset($_POST) && !empty($_POST)) {
     // CSRF Token Validation
     if (isset($_POST['csrf_token'])) {
         if ($_POST['csrf_token'] === $_SESSION['csrf_token']) {
+
         } else {
+            echo $_POST['csrf_token'];
+            echo $_SESSION['csrf_token'];
             $errors[] = "Problem with CSRF Token Verification";
         }
     } else {

@@ -14,9 +14,7 @@ if ((basename($_SERVER['PHP_SELF']) == 'login.php') || (basename($_SERVER['PHP_S
 		$currentDir = dirname($_SERVER['REQUEST_URI']);
 
 		if (($user['role'] == 'administrator') || ($user['role'] == 'editor')) {
-			//echo "role: admin/editor";
-			// redirect to dashboard page
-			header("location: dashboard.php");
+
 		} elseif ($user['role'] == 'subscriber') {
 			//echo "role: subscriber";
 			// redirect to Blog Home page

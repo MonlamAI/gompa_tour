@@ -14,7 +14,5 @@ if (($user['role'] == 'editor') || ($user['role'] == 'subscriber')) {
 	exit;
 } elseif ($user['role'] == 'administrator') {
 	// do nothing
-	header("location: dashboard.php");
-	exit;
 }
 ?>
