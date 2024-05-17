@@ -5,6 +5,7 @@ require_once ('includes/if-loggedin.php');
 include ('includes/header.php');
 
 if (isset($_POST) && !empty($_POST)) {
+    session_start();
     if (empty($_POST['email'])) {
         $errors[] = 'User Name / E-mail field is Required';
     }
