@@ -91,7 +91,6 @@ if (isset($_POST) & !empty($_POST)) {
 
                             $dbpath = uploadToS3($key, $tmp_name);
                             // Print the URL of the uploaded file
-                            echo 'Uploaded picture URL: ' . $dbpath;
                         } catch (AwsException $e) {
                             // Catch any errors that occur during the upload process
                             echo 'Error uploading picture: ' . $e->getMessage();
