@@ -7,6 +7,7 @@ require_once ('../includes/connect.php');
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
 $domain = $_SERVER['HTTP_HOST'];
 $currentDir = $protocol . "://" . $domain . "/logout.php";
+echo "" . $currentDir . "";
 // Redirect to the logout page
 header("Location: " . $currentDir);
 exit;
