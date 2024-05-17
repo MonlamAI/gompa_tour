@@ -23,7 +23,7 @@
                 <li><a href="settings.php"><i class="fa fa-gear fa-fw"></i> སྒྲིག་འགོད།</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="/logout.php"><i class="fa fa-sign-out fa-fw"></i> ཕྱིར་འབུད།</a>
+                <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> ཕྱིར་འབུད།</a>
                 </li>
             </ul>
             <!-- /.dropdown-user -->

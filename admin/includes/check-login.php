@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
 	if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {

@@ -1,9 +1,10 @@
 <?php 
 require_once('../includes/connect.php');
 include('includes/check-login.php');
-include('includes/check-subscriber.php');
+//include('includes/check-subscriber.php');
 include('includes/header.php'); 
 include('includes/navigation.php');  
+
 
 // get number of per page results from settings table
 $rppsql = "SELECT * FROM settings WHERE name='resultsperpage'";
