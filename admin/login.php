@@ -1,10 +1,11 @@
 <?php
-
+session_abort();
+session_start();
+require_once ('../includes/init.php');
 require_once ('../includes/connect.php');
 require_once ('includes/if-loggedin.php');
 include ('includes/header.php');
-session_abort();
-session_start();
+
 if (isset($_POST) && !empty($_POST)) {
     if (empty($_POST['email'])) {
         $errors[] = 'User Name / E-mail field is Required';
