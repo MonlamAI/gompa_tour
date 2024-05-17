@@ -1,5 +1,5 @@
 <?php
-//require_once '../includes/init.php';
+require_once '../includes/init.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,20 +23,21 @@
 
     <!-- Custom Fonts -->
     <link href="./vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<style>
-     @font-face {
-  font-family: 'Monlam';
-  src: url('../vendor/font/MonlamTBslim.woff2') format('woff2'),
-      url('../vendor/font/MonlamTBslim.woff') format('woff'),
-      url('../vendor/font/MonlamTBslim.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-*{
-  font-family: 'Monlam', Courier, monospace;
-}
-</style>
+    <style>
+        @font-face {
+            font-family: 'Monlam';
+            src: url('../vendor/font/MonlamTBslim.woff2') format('woff2'),
+                url('../vendor/font/MonlamTBslim.woff') format('woff'),
+                url('../vendor/font/MonlamTBslim.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            font-family: 'Monlam', Courier, monospace;
+        }
+    </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
