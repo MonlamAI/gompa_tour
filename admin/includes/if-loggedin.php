@@ -15,7 +15,7 @@ if((basename($_SERVER['PHP_SELF']) == 'login.php') || (basename($_SERVER['PHP_SE
 		}elseif($user['role'] == 'subscriber'){
 			//echo "role: subscriber";
 			// redirect to Blog Home page
-			header("location: https://gompatour.com/index.php");
+			header("location: https://gompatour.com/admin/index.php");
 		}
 	}
 }

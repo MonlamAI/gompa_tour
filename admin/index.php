@@ -136,7 +136,7 @@ include('includes/navigation.php');
                                          ?>
                                         <tr>
                                             <td><?php echo $post['id']; ?></td>
-                                            <td><?php echo $post['title']; ?></td>
+                                            <td><?php echo $post['tbtitle']; ?></td>
                                             <td><?php echo $user['username']; ?></td>
                                             <td><?php echo $post['status']; ?></td>
                                         </tr>

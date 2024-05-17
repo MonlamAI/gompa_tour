@@ -56,7 +56,7 @@ if(isset($_POST) && !empty($_POST)){
                 $_SESSION['id'] = $res['id'];
                 $_SESSION['last_login'] = time();
                 // Redirect the user to members area/dashboard page
-                //header('location:dashboard.php');
+                header('location:https://gompatour.com/admin/dashboard.php');
                 exit;
             }else{
                 $errors[] = "User Name / E-Mail & Password Combination not Working";
