@@ -6,6 +6,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Your PHP code here
+
 require_once ('../includes/connect.php');
 include ('includes/check-login.php');
 include ('includes/check-subscriber.php');
