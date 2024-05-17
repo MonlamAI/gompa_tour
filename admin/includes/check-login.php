@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once ("includes/if-loggedin.php");
 if (isset($_SESSION['login']) & ($_SESSION['login'] == true)) {
 } else {
 	// redirect user to login page
