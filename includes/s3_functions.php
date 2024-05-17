@@ -7,25 +7,23 @@ if (file_exists($dotenvFile)) {
 use Aws\S3\S3Client;
 use Aws\S3\Exception\S3Exception;
 
-// Function to upload file to Amazon S3
-
-// Instantiate an S3 client
 
 
 function uploadToS3($keyName, $filePath)
 {
     $bucketName = 'gompa-tour';
-
-    $credentials = [
-        'key' => getenv('AWS_ACCESS_KEY'),
-        'secret' => getenv('AWS_SECRET_KEY'),
-    ];
-    $s3Client = new S3Client([
-        'version' => 'latest',
-        'region' => 'ap-south-1',
-        'credentials' => $credentials
-    ]);
-
+    $accesskey = getenv('AWS_ACCESS_KEY');
+    $secret = getenv('AWS_SECRET_KEY');
+    $credentials = array(
+        'key' => $accesskey,
+        'secret' => $secret,
+    );
+    $s3Client = S3Client::factory(
+        array(
+            'credentials' => $credentials,
+            'region' => 'ap-south-1'
+        )
+    );
     try {
         $result = $s3Client->putObject([
             'Bucket' => $bucketName,
@@ -33,7 +31,7 @@ function uploadToS3($keyName, $filePath)
             'Body' => fopen($filePath, 'rb'),
         ]);
 
-        return $result['ObjectURL']; // Return the URL of the uploaded file
+        return $result['ObjectURL'];
     } catch (S3Exception $e) {
         return "Error uploading file: " . $e->getMessage();
     }
