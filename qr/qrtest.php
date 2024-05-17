@@ -4,7 +4,7 @@
 require_once '../vendor/phpqrcode/qrlib.php';
 
 // The data you want to encode in the QR code
-$data = 'http://localhost/Blog-PHP/tensum.php?url=the-seventeen-pandits-and-siddhas-of-the-noble-land-of-india'; // Your data here, Unicode characters supported
+$data = 'https://gompatour.com/tensum.php?url=the-seventeen-pandits-and-siddhas-of-the-noble-land-of-india'; // Your data here, Unicode characters supported
 
 // The path where the QR code will be saved
 

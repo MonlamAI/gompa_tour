@@ -282,7 +282,7 @@ include('includes/navigation.php');
                             </form>
                             <?php 
                             if(isset($post['slug'])){                                  
-                                $text ='http://localhost/Blog-PHP/tensum.php?url='.$post['slug'].'';
+                                $text ='https://gompatour.com/tensum.php?url='.$post['slug'].'';
                                 
                                 // Start output buffering
                                 ob_start();

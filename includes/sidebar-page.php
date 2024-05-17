@@ -186,7 +186,7 @@ if($widgetcount == 1){
           <ul class="list-unstyled mb-0">
             <?php foreach ($pageres as $page) { ?>
             <li>
-              <a href="http://localhost/Blog-PHP/page/<?php echo $page['slug']; ?>"><?php echo $page['title']; ?></a>
+              <a href="https://gompatour.com/<?php echo $page['slug']; ?>"><?php echo $page['title']; ?></a>
             </li>
             <?php } ?>
           </ul>

@@ -62,7 +62,7 @@ $user = $userresult->fetch(PDO::FETCH_ASSOC);
       <!-- Author -->
       <p class="lead">
      
-        <a href="http://localhost/Blog-PHP/user/<?php echo $user['username']; ?>"><?php if((isset($user['fname']) || isset($user['lname'])) & (!empty($user['fname']) || !empty($user['lname']))) {echo $user['fname'] . " " . $user['lname']; }else{echo $user['username']; } ?></a>
+        <a href="https://gompatour.com/user/<?php echo $user['username']; ?>"><?php if((isset($user['fname']) || isset($user['lname'])) & (!empty($user['fname']) || !empty($user['lname']))) {echo $user['fname'] . " " . $user['lname']; }else{echo $user['username']; } ?></a>
       <?php
         $sql = "SELECT * FROM comments WHERE pid=? AND status='approved'";
         $result = $db->prepare($sql);

@@ -62,7 +62,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
       <!-- Blog Post -->
       <div class="card mb-4">
         <?php if(isset($post['pic']) & !empty($post['pic'])){ ?>
-            <img class="card-img-top" src="http://localhost/Blog-PHP/<?php echo $post['pic']; ?>" alt="Card image cap">
+            <img class="card-img-top" src="https://gompatour.com/<?php echo $post['pic']; ?>" alt="Card image cap">
         <?php }else{ ?>
             <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
         <?php } ?>
@@ -78,7 +78,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
           ?>
           <a href="#" class="btn btn-secondary"><?php echo $commentcount; ?> Comments</a>
           <?php } ?>
-          <a href="http://localhost/Blog-PHP/<?php echo $post['slug']; ?>" class="btn btn-primary">Read More &rarr;</a>
+          <a href="https://gompatour.com/<?php echo $post['slug']; ?>" class="btn btn-primary">Read More &rarr;</a>
         </div>
         <div class="card-footer text-muted">
           Posted on <?php echo $post['created']; ?> by
@@ -88,7 +88,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
             $userresult->execute(array($post['uid']));
             $user = $userresult->fetch(PDO::FETCH_ASSOC);
           ?>
-          <a href="http://localhost/Blog-PHP/user/<?php echo $user['username']; ?>"><?php if((isset($user['fname']) || isset($user['lname'])) & (!empty($user['fname']) || !empty($user['lname']))) {echo $user['fname'] . " " . $user['lname']; }else{echo $user['username']; } ?></a>
+          <a href="https://gompatour.com/user/<?php echo $user['username']; ?>"><?php if((isset($user['fname']) || isset($user['lname'])) & (!empty($user['fname']) || !empty($user['lname']))) {echo $user['fname'] . " " . $user['lname']; }else{echo $user['username']; } ?></a>
         </div>
       </div>
     <?php //} 
@@ -100,22 +100,22 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
       <ul class="pagination justify-content-center mb-4">
         <?php if($curpage != $startpage){ ?>
         <li class="page-item">
-          <a class="page-link" href="http://localhost/Blog-PHP/category/<?php echo $_GET['url']; ?>/<?php echo $startpage; ?>">&larr; Older</a>
+          <a class="page-link" href="https://gompatour.com/category/<?php echo $_GET['url']; ?>/<?php echo $startpage; ?>">&larr; Older</a>
         </li>
         <?php } ?>
         <?php if($curpage >= 2){ ?>
         <li class="page-item">
-          <a class="page-link" href="http://localhost/Blog-PHP/category/<?php echo $_GET['url']; ?>/<?php echo $previouspage; ?>"><?php echo $previouspage; ?></a>
+          <a class="page-link" href="https://gompatour.com/category/<?php echo $_GET['url']; ?>/<?php echo $previouspage; ?>"><?php echo $previouspage; ?></a>
         </li>
         <?php } ?>
         <?php if($curpage != $endpage ){ ?>
         <li class="page-item">
-          <a class="page-link" href="http://localhost/Blog-PHP/category/<?php echo $_GET['url']; ?>/<?php echo $nextpage; ?>"><?php echo $nextpage; ?></a>
+          <a class="page-link" href="https://gompatour.com/category/<?php echo $_GET['url']; ?>/<?php echo $nextpage; ?>"><?php echo $nextpage; ?></a>
         </li>
         <?php } ?>
         <?php if($curpage != $endpage){ ?>
         <li class="page-item">
-          <a class="page-link" href="http://localhost/Blog-PHP/category/<?php echo $_GET['url']; ?>/<?php echo $endpage; ?>">Newer &rarr;</a>
+          <a class="page-link" href="https://gompatour.com/category/<?php echo $_GET['url']; ?>/<?php echo $endpage; ?>">Newer &rarr;</a>
         </li>
         <?php } ?>
       </ul>
