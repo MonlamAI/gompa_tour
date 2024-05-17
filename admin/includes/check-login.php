@@ -28,7 +28,7 @@ if (isset($_SESSION['id']) & !empty($_SESSION['id'])) {
 	if ($user['role'] == 'subscriber') {
 		//echo "role: subscriber";
 		// redirect to Blog Home page
-		header("location: $protocol://$domain$currentDir/index.php");
+		header("location: admin/index.php");
 	}
 }
 ?>

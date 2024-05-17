@@ -10,7 +10,7 @@ if (($user['role'] == 'editor') || ($user['role'] == 'subscriber')) {
 	// Redirect to dashboard using current domain
 	$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
 	$currentDir = dirname($_SERVER['REQUEST_URI']);
-	header("location: $protocol://$domain$currentDir/dashboard.php");
+	header("location: dashboard.php");
 } elseif ($user['role'] == 'administrator') {
 	// do nothing
 }
