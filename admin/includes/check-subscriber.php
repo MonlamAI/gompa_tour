@@ -5,6 +5,6 @@ $result->execute(array($_SESSION['id']));
 $user = $result->fetch(PDO::FETCH_ASSOC); 
 
 if($user['role'] == 'subscriber'){
-	header("location: http://localhost/Blog-PHP/index.php");
+	header("location: https://gompatour.com/index.php");
 }
 ?>
