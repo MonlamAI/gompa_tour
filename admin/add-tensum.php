@@ -9,7 +9,6 @@ ini_set('display_errors', 1);
 require_once ('../includes/connect.php');
 include ('includes/check-login.php');
 include ('includes/check-subscriber.php');
-
 require_once ('../includes/s3_functions.php');
 
 
