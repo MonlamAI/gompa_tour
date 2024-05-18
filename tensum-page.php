@@ -40,6 +40,12 @@ if(isset($_GET['page']) & !empty($_GET['page'])){
 }else{
   $curpage = 1;
 }
+
+// get the number of total tensum from tensum table
+$sql = "SELECT * FROM tensum";
+$result = $db->prepare($sql);
+$result->execute();
+$totalres = ceil($totalres/$perpage);
 // create startpage, nextpage, endpage variables with values
 $endpage = $totalres/$perpage;
 $startpage = 1;

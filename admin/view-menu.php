@@ -17,7 +17,7 @@ if(isset($_GET['page']) & !empty($_GET['page'])){
   $curpage = 1;
 }
 // get the number of total posts from posts table
-$sql = "SELECT * FROM menu";
+$sql = "SELECT * FROM tensum";
 $result = $db->prepare($sql);
 $result->execute();
 $totalres = $result->rowCount();
