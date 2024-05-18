@@ -28,6 +28,24 @@ $webRoot = dirname($_SERVER['PHP_SELF']);
 // Construct the base URL
 $baseUrl = $protocol . $serverName . $webRoot;
 
+// get number of per page results from settings table
+$rppsql = "SELECT * FROM settings WHERE name='resultsperpage'";
+$rppresult = $db->prepare($rppsql);
+$rppresult->execute();
+$rpp = $rppresult->fetch(PDO::FETCH_ASSOC);
+$perpage = $rpp['value'];
+
+if(isset($_GET['page']) & !empty($_GET['page'])){
+  $curpage = $_GET['page'];
+}else{
+  $curpage = 1;
+}
+// create startpage, nextpage, endpage variables with values
+$endpage = ceil($totalres/$perpage);
+$startpage = 1;
+$nextpage = $curpage + 1;
+$previouspage = $curpage - 1;
+$start = ($curpage * $perpage) - $perpage;
 ?>
 
 <!-- Page Content -->
@@ -217,9 +235,29 @@ $baseUrl = $protocol . $serverName . $webRoot;
  
         </form>
         <div>
-          <?php
-
-          ?>
+          <!-- Pagination -->
+          <ul class="pagination justify-content-center mb-4">
+                        <?php if($curpage != $startpage){ ?>
+                        <li class="page-item">
+                          <a class="page-link" href="?page=<?php echo $startpage; ?>">&laquo; དང་པོ།</a>
+                        </li>
+                        <?php } ?>
+                        <?php if($curpage >= 2){ ?>
+                        <li class="page-item">
+                          <a class="page-link" href="?page=<?php echo $previouspage; ?>"><?php echo $previouspage; ?></a>
+                        </li>
+                        <?php } ?>
+                        <?php if($curpage != $endpage ){ ?>
+                        <li class="page-item">
+                          <a class="page-link" href="?page=<?php echo $nextpage; ?>"><?php echo $nextpage; ?></a>
+                        </li>
+                        <?php } ?>
+                        <?php if($curpage != $endpage){ ?>
+                        <li class="page-item">
+                          <a class="page-link" href="?page=<?php echo $endpage; ?>">&raquo; མཐའ་མ།</a>
+                        </li>
+                        <?php } ?>
+                      </ul>
         </div>
 </div>
 
