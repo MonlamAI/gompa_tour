@@ -23,4 +23,4 @@ RUN composer clear-cache
 EXPOSE 80
 
 # Start Apache when the container runs
-CMD ["apache2-foreground"]
+CMD ["bash", "-c", "apache2-foreground && service apache2 restart"]
