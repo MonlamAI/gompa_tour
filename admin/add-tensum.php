@@ -119,10 +119,10 @@ if (isset($_POST) & !empty($_POST)) {
 
                         try {
                             $dbpathSound = uploadToS3($key, $tmp_nameSound);
-                            echo 'Uploaded picture URL: ' . $dbpathSound;
+                            echo 'Uploaded MP3 URL: ' . $dbpathSound;
                         } catch (AwsException $e) {
                             // Catch any errors that occur during the upload process
-                            echo 'Error uploading picture: ' . $e->getMessage();
+                            echo 'Error uploading MP3: ' . $e->getMessage();
                         }
                     } else {
                         $errors[] = "Only Upload Audio files";
