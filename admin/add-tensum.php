@@ -104,31 +104,34 @@ if (isset($_POST) & !empty($_POST)) {
                 }
             }
 
-
             $nameSound = $_FILES['sound']['name'];
             $typeSound = $_FILES['sound']['type'];
             $tmp_nameSound = $_FILES['sound']['tmp_name'];
 
             $audio_key = 'media/audios/' . time() . $nameSound; // The key is the path and filename in the S3 bucket
 
-
-
-            if (isset($nameSound) && !empty($nameSound)) {
-
+            if (!empty($nameSound) && is_uploaded_file($tmp_nameSound)) {
                 $locationSound = "../media/audios/";
                 $filenameSound = time() . $nameSound; // Securely generating a new filename
                 $uploadpathSound = $locationSound . $filenameSound;
                 $dbpathSound = "media/audios/" . $filenameSound;
 
-                try {
-                    $dbpathSound = uploadToS3($audio_key, $tmp_nameSound);
-                    echo 'Uploaded MP3 URL: ' . $dbpathSound;
-                } catch (AwsException $e) {
-                    // Catch any errors that occur during the upload process
-                    echo 'Error uploading MP3: ' . $e->getMessage();
+                // Check file type if needed
+                // For example, to allow only MP3 files
+                if ($typeSound === 'audio/mpeg') {
+                    try {
+                        $dbpathSound = uploadToS3($audio_key, $tmp_nameSound);
+                        echo 'Uploaded MP3 URL: ' . $dbpathSound;
+                    } catch (AwsException $e) {
+                        // Catch any errors that occur during the upload process
+                        echo 'Error uploading MP3: ' . $e->getMessage();
+                    }
+                } else {
+                    echo 'Invalid file type. Only MP3 files are allowed.';
                 }
+            } else {
+                echo 'No file uploaded or invalid file.';
             }
-
         }
 
         if (empty($errors)) {
@@ -255,7 +258,7 @@ include ('includes/navigation.php');
                                             href="delete-pic.php?id=<?php echo urlencode($_GET['id']); ?>&type=tensum">པར་རིས་གསུབ།</a>
                                     <?php else: ?>
                                         <label for="pic">པར་རིས།</label>
-                                        <input type="file" id="pic" name="pic" accept="'.jpg,.jpeg">
+                                        <input type="file" id="pic" name="pic" accept="image/*">
                                         <div id="imageTypeError" style="color: red; display: block; margin-top: 10px;">
                                             པར་རིས་ནི། JPEG རྣམ་ཅན་ཁོ་ན་ལས་ངོས་ལེན་མི་བྱེད།</div>
                                     <?php endif; ?>
