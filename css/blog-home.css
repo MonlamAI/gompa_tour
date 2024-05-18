@@ -168,11 +168,10 @@ line-height: 40px;
     display: none;
   }
   .map-title{
-    padding-top: 0px;
-      margin-bottom: 0px;
-      text-align: center !important;
-      font-size: 15px !important;
-      margin-top: 10px !important;
+    position: relative;
+    padding-top: 10px;
+    font-size: 16px !important;
+    left: 30px;
   }
   body{
     padding-top: 10px !important;
