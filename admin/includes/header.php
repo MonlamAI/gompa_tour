@@ -14,6 +14,7 @@ require_once '../includes/init.php';
 
     <title>Web Admin</title>
     <link rel="icon" href="../vendor/img/logo.ico" type="image/x-icon">
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1023.0.min.js"></script>
 
     <!-- Bootstrap Core CSS -->
     <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

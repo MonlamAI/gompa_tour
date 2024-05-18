@@ -160,25 +160,6 @@ if (isset($_POST) & !empty($_POST)) {
         $res = $result->execute($values) or die(print_r($result->errorInfo(), true));
 
         if ($res) {
-            // TODO : removing non selected categories from post_categories table
-            // $pid = $_POST['id'];
-            // foreach ($_POST['categories'] as $category) {
-            //     $catsql = "SELECT * FROM post_categories WHERE pid=:pid AND cid=:cid";
-            //     $catresult = $db->prepare($catsql);
-            //     $values = array(':pid'      => $pid,
-            //                     ':cid'      => $category,
-            //                     );
-            //     $catresult->execute($values);
-            //     $catcount = $catresult->rowCount();
-            //     if($catcount == 1){}else{
-            //         $sql = "INSERT INTO post_categories (pid, cid) VALUES (:pid, :cid)";
-            //         $result = $db->prepare($sql);
-            //         $values = array(':pid'  => $pid,
-            //                         ':cid'  => $category
-            //                         );
-            //         $res = $result->execute($values) or die(print_r($result->errorInfo(), true));
-            //     }
-            // }
             header("location: view-tensum.php");
         } else {
             $errors[] = "Failed to Add Category";
@@ -298,7 +279,7 @@ include ('includes/navigation.php');
                                         <a
                                             href="delete-sound.php?id=<?php echo urlencode($_GET['id']); ?>&type=tensum">སྒྲ་གསུབ།</a>
                                     <?php else: ?>
-                                        
+
                                         <br><label for="sound">རྟེན་བཤད་འདིའི་སྒྲ་ཐག་འཇུག་དགོས།</label>
                                         <input class="form-control" type="text" id="sound" name="sound">
 
