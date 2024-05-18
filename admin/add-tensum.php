@@ -105,6 +105,9 @@ if (isset($_POST) & !empty($_POST)) {
             }
 
             echo "code reached here";
+            echo $_FILES['sound']['error'];
+
+            exit;
             if ($_FILES['sound']['error'] == UPLOAD_ERR_OK) { // Correctly checking the sound file now
                 $nameSound = $_FILES['sound']['name'];
                 $typeSound = $_FILES['sound']['type'];
