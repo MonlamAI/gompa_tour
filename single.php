@@ -43,7 +43,7 @@ $user = $userresult->fetch(PDO::FETCH_ASSOC);
 
     <!-- Post Content Column -->
     <div class="col-lg-8">
-    <a href="javascript:history.back()"> <span style="font-size: 22px;"><i class='fa fa-angle-left'></i></span> <?php echo htmlspecialchars(translate('go-back'), ENT_QUOTES, 'UTF-8'); ?></a>
+    <a href="javascript:history.back()"> <span style="font-size: 22px;position: relative;top: 2px;"><i class='fa fa-angle-left'></i></span> <?php echo htmlspecialchars(translate('go-back'), ENT_QUOTES, 'UTF-8'); ?></a>
 
       <?php
       if($_SESSION['lang'] === 'en'){
