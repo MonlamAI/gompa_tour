@@ -83,7 +83,7 @@ $user = $userresult->fetch(PDO::FETCH_ASSOC);
 
       <!-- Preview Image -->
       <?php if(isset($post['pic']) & !empty($post['pic'])){ ?>
-          <img style="max-height: 400px;width: 100%;object-fit: cover;" class="img-fluid rounded" src="<?php echo $baseUrl ."/". $post['pic']; ?>" alt="">
+          <img style="max-height: 400px;width: 100%;object-fit: cover;" class="img-fluid rounded" src="<?php echo $baseUrl ."/". $post['pic']; ?>" alt="" onerror="this.onerror=null; this.src='vendor/img/noimage.jpg';">
       <?php }else{ ?>
           <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
       <?php } ?>

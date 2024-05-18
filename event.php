@@ -52,7 +52,7 @@ if($_SESSION['lang'] === 'en'){
       <!-- Author -->
       <!-- Preview Image -->
       <?php if(isset($post['pic']) & !empty($post['pic'])){ ?>
-          <img style="width: 100%;object-fit: cover;" class="img-fluid rounded" src="<?php echo $baseUrl?>/<?php echo $post['pic']; ?>" alt="">
+          <img style="width: 100%;object-fit: cover;" class="img-fluid rounded" src="<?php echo $post['pic']; ?>" alt="" onerror="this.onerror=null; this.src='vendor/img/noimage.jpg';">
       <?php }else{ ?>
           <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
       <?php } ?>
