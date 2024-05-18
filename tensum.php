@@ -53,7 +53,7 @@ if ($_SESSION['lang'] === 'en') {
       <?php if (isset($post['pic']) & !empty($post['pic'])) { ?>
         <img style="width: 100%;object-fit: cover;" class="img-fluid rounded" src="<?php echo $post['pic']; ?>" alt="">
       <?php } else { ?>
-        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+        <img class="img-fluid rounded" src="vendor/img/noimage.jpg" alt="">
       <?php } ?>
       <hr>
       <!-- Post Content -->
