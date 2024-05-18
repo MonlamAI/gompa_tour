@@ -145,7 +145,7 @@ if (isset($_POST) & !empty($_POST)) {
                 ':encontent' => $_POST['encontent'],
                 ':status' => $_POST['status'],
                 ':callnumber' => $_POST['callnumber'],
-                ':slug' => $slug,
+                ':slug' => $_POST['slug'],
                 ':pic' => $dbpath, // Ensure these are defined or default
                 ':sound' => $_POST['sound'] // Ensure these are defined or default
             );

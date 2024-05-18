@@ -47,6 +47,7 @@ $map = $post['map'];
 
 ?>
 <!-- Page Content -->
+
 <div class="container">
 
   <div class="row">
@@ -79,34 +80,34 @@ $map = $post['map'];
         <i class="fa fa-stop-circle"></i>
       </button>
       <span style="color: #797777;font-size: 14px;font-family: Monlam;">Text to Read in English</span>
-            <script>
+      <script>
             var currentSpeech = null;
 
             function readText() {
-                if (window.speechSynthesis.speaking || window.speechSynthesis.paused) {
-                    return; // Already speaking or paused, so do nothing.
-                }
+              if (window.speechSynthesis.speaking || window.speechSynthesis.paused) {
+                return; // Already speaking or paused, so do nothing.
+              }
 
-                var textElement = document.getElementById('textToRead');
-                var text = textElement.textContent || textElement.innerText;
-                
-                var speech = new SpeechSynthesisUtterance(text);
-                speech.lang = 'en-US'; // Set language to English
+              var textElement = document.getElementById('textToRead');
+              var text = textElement.textContent || textElement.innerText;
 
-                currentSpeech = speech; // Keep a reference to the current speech
-                
-                window.speechSynthesis.speak(speech);
+              var speech = new SpeechSynthesisUtterance(text);
+              speech.lang = 'en-US'; // Set language to English
+
+              currentSpeech = speech; // Keep a reference to the current speech
+
+              window.speechSynthesis.speak(speech);
             }
 
             function stopText() {
-                if (window.speechSynthesis.speaking || window.speechSynthesis.paused) {
-                    window.speechSynthesis.cancel(); // This will stop the speech
-                    currentSpeech = null;
-                }
+              if (window.speechSynthesis.speaking || window.speechSynthesis.paused) {
+                window.speechSynthesis.cancel(); // This will stop the speech
+                currentSpeech = null;
+              }
             }
 
-            speechSynthesis.onvoiceschanged = function() {
-                // Voices are loaded, you can now set a specific voice if needed.
+            speechSynthesis.onvoiceschanged = function () {
+              // Voices are loaded, you can now set a specific voice if needed.
             };
           </script>
 
@@ -128,72 +129,66 @@ $map = $post['map'];
         <?php echo $web_content; ?>
       </div>
       <div>
-        
+      
         <hr>
         <!-- <h5 style="padding-bottom: 30px;" >རྟགས་རིས་ཁ་བྱང་། (QR)</h5> -->
       
 
 
 
-
+        
 
         <script>
-        let msg; // Define outside to make it reusable
+          let msg; // Define outside to make it reusable
 
-        function populateVoiceList() {
-        var voices = window.speechSynthesis.getVoices();
-        var voiceSelect = document.getElementById('voiceSelection');
+          function populateVoiceList() {
+            var voices = window.speechSynthesis.getVoices();
+            var voiceSelect = document.getElementById('voiceSelection');
 
-        voices.forEach((voice, index) => {
-        var option = document.createElement('option');
-        option.textContent = voice.name + ' (' + voice.lang + ')';
-        
-        // Optionally, try to infer gender from the voice name
-        if(voice.name.toLowerCase().includes('female') || voice.name.toLowerCase().includes('woman')) {
-            option.textContent += ' - Female';
-        } else if(voice.name.toLowerCase().includes('male') || voice.name.toLowerCase().includes('man')) {
-            option.textContent += ' - Male';
-        }
+            voices.forEach((voice, index) => {
+              var option = document.createElement('option');
+              option.textContent = voice.name + ' (' + voice.lang + ')';
 
-          option.setAttribute('value', index);
-          voiceSelect.appendChild(option);
-        });
-        }
+              // Optionally, try to infer gender from the voice name
+              if (voice.name.toLowerCase().includes('female') || voice.name.toLowerCase().includes('woman')) {
+                option.textContent += ' - Female';
+              } else if (voice.name.toLowerCase().includes('male') || voice.name.toLowerCase().includes('man')) {
+                option.textContent += ' - Male';
+              }
 
-        function speakText() {
-        // Stop current speech if any
-        window.speechSynthesis.cancel();
+              option.setAttribute('value', index);
+              voiceSelect.appendChild(option);
+            });
+          }
+          function speakText() {
+            // Stop current speech if any
+            window.speechSynthesis.cancel();
+            // Get the selected voice
+            var selectedVoiceIndex = document.getElementById('voiceSelection').value;
+            var voices = window.speechSynthesis.getVoices();
 
-        // Get the selected voice
-        var selectedVoiceIndex = document.getElementById('voiceSelection').value;
-        var voices = window.speechSynthesis.getVoices();
-
-        // Get the text from the div
-        var text = document.getElementById("textToRead").innerText;
-
+            // Get the text from the div
+            var text = document.getElementById("textToRead").innerText;
             // Create a new speech synthesis utterance with the selected voice
             msg = new SpeechSynthesisUtterance(text);
             msg.voice = voices[selectedVoiceIndex];
-
             // Speak the text
             window.speechSynthesis.speak(msg);
-        }
+          }
 
-        // Populate voice list when voices are loaded
-        window.speechSynthesis.onvoiceschanged = populateVoiceList;
+          // Populate voice list when voices are loaded
+          window.speechSynthesis.onvoiceschanged = populateVoiceList;
 
-        function stopText() {
-        // Stop the speech synthesis
-        window.speechSynthesis.cancel();
-        }
+          function stopText() {
+            // Stop the speech synthesis
+            window.speechSynthesis.cancel();
+          }
+          function reReadText() {
+            // Stop the current speech and start over
+            speakText();
+          }
 
-        function reReadText() {
-          // Stop the current speech and start over
-          speakText();
-        }
-
-
-    </script>
+        </script>
           </div>
 
           <?php
