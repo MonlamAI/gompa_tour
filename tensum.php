@@ -46,6 +46,8 @@ if ($_SESSION['lang'] === 'en') {
   <div class="row">
     <!-- Post Content Column -->
     <div class="col-lg-8">
+    <a href="javascript:history.back()"> <span style="font-size: 22px;"><i class='fa fa-angle-left'></i></span> <?php echo htmlspecialchars(translate('go-back'), ENT_QUOTES, 'UTF-8'); ?></a>
+
       <!-- Title -->
       <h4 style="margin-bottom: 20px; line-height: 35px; " class="mt-4"><?php echo $titel; ?></h4>
       <!-- Author -->

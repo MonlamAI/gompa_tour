@@ -43,6 +43,8 @@ $user = $userresult->fetch(PDO::FETCH_ASSOC);
 
     <!-- Post Content Column -->
     <div class="col-lg-8">
+    <a href="javascript:history.back()"> <span style="font-size: 22px;"><i class='fa fa-angle-left'></i></span> <?php echo htmlspecialchars(translate('go-back'), ENT_QUOTES, 'UTF-8'); ?></a>
+
       <?php
       if($_SESSION['lang'] === 'en'){
         $titel = $post['entitle'];
@@ -60,26 +62,11 @@ $user = $userresult->fetch(PDO::FETCH_ASSOC);
       <h2 style="line-height: 50px;"class="mt-4"><?php echo $titel; ?></h2>
 
       <!-- Author -->
-      <p class="lead">
-     
-        <a href="https://gompatour.com/user/<?php echo $user['username']; ?>"><?php if((isset($user['fname']) || isset($user['lname'])) & (!empty($user['fname']) || !empty($user['lname']))) {echo $user['fname'] . " " . $user['lname']; }else{echo $user['username']; } ?></a>
-      <?php
-        $sql = "SELECT * FROM comments WHERE pid=? AND status='approved'";
-        $result = $db->prepare($sql);
-        $result->execute(array($post['id']));
-        $commentcount = $result->rowCount();
-        if($commentcount >= 1){
-      ?>
-      <a href="#" class="btn btn-primary"><?php echo $commentcount; ?> Comments</a>
-      <?php } ?>
-     
-      </p>
+      
       <hr>
 
       <!-- Date/Time -->
-      <p style="line-height: 30px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 15px;"><?php echo translate('posted-on'); ?> <?php echo $dateTime->format("Y-m-d")  ?></p>
-
-      <hr>
+      
 
       <!-- Preview Image -->
       <?php if(isset($post['pic']) & !empty($post['pic'])){ ?>

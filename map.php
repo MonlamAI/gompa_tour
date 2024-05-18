@@ -57,7 +57,7 @@ $gonpaName ="<span>ཐེག་མཆོག་རྣམ་གྲོལ་གླ�
 
     <!-- Post Content Column -->
     <div class="col-lg-12">
-      <h4 style="padding-top: 50px;margin-bottom: 20px;">ས་ཁྲ་བརྒྱུད་ནས་འཚོལ་ཞིབ།</h4>
+      <h4 style="padding-top: 0px;margin-bottom: 20px;">ས་ཁྲ་བརྒྱུད་ནས་འཚོལ་ཞིབ།</h4>
       <div style="text-align: right;">
         <button class="btn" id="full-screen" style="margin-bottom: 5px;" onclick="fullScreenview()"><span><i class='fa fa-arrows-alt'></i></span>  Full Screen</button>
       </div>
