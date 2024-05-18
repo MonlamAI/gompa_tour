@@ -112,27 +112,20 @@ if (isset($_POST) & !empty($_POST)) {
             $audio_key = 'media/audios/' . time() . $nameSound; // The key is the path and filename in the S3 bucket
 
 
-            echo "type " . $typeSound;
-            echo "name " . $nameSound;
 
-            exit;
             if (isset($nameSound) && !empty($nameSound)) {
 
-                if ($typeSound == "mp3") { // Correctly checking the MIME type for the sound file
-                    $locationSound = "../media/audios/";
-                    $filenameSound = time() . $nameSound; // Securely generating a new filename
-                    $uploadpathSound = $locationSound . $filenameSound;
-                    $dbpathSound = "media/audios/" . $filenameSound;
+                $locationSound = "../media/audios/";
+                $filenameSound = time() . $nameSound; // Securely generating a new filename
+                $uploadpathSound = $locationSound . $filenameSound;
+                $dbpathSound = "media/audios/" . $filenameSound;
 
-                    try {
-                        $dbpathSound = uploadToS3($audio_key, $tmp_nameSound);
-                        echo 'Uploaded MP3 URL: ' . $dbpathSound;
-                    } catch (AwsException $e) {
-                        // Catch any errors that occur during the upload process
-                        echo 'Error uploading MP3: ' . $e->getMessage();
-                    }
-                } else {
-                    $errors[] = "Only Upload Audio files";
+                try {
+                    $dbpathSound = uploadToS3($audio_key, $tmp_nameSound);
+                    echo 'Uploaded MP3 URL: ' . $dbpathSound;
+                } catch (AwsException $e) {
+                    // Catch any errors that occur during the upload process
+                    echo 'Error uploading MP3: ' . $e->getMessage();
                 }
             }
 
