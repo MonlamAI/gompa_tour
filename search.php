@@ -26,19 +26,20 @@ $baseUrl = getBaseUrl();
 
             <form action="search.php" style="margin-top: 18px;" class="input-group custom-search-form">
     
-         <input style="border-color: rgb(199, 228, 254); background-color: rgb(228, 242, 255);margin-bottom: 10px;"name="search" type="text" class="form-control" placeholder="འཚོལ་ཞིབ།...">
+         <input style="border-color: rgb(199, 228, 254); background-color: rgb(228, 242, 255);margin-bottom: 10px;"name="search" type="text" class="form-control" placeholder="<?php echo htmlspecialchars(translate('search_for'), ENT_QUOTES, 'UTF-8'); ?>">
     
                 <span class="input-group-btn">
-                    <button style="border-radius: 0px 5px 5px 0px; padding-top: 10px; background-color: rgb(245, 246, 246);" class="btn btn-default" type="submit">འཚོལ།
+                    <button style="border-radius: 0px 5px 5px 0px; padding-top: 10px; background-color: rgb(245, 246, 246);" class="btn btn-default" type="submit"><?php echo htmlspecialchars(translate('search_btn'), ENT_QUOTES, 'UTF-8'); ?>
                         <i class="fa fa-search"></i>
                 </button>
+                
         </span>
         <div style="margin-left: 20px;" class="col-12 p-1">
     
         <input name="tensum" value="tensum" type="checkbox" class="form-check-input" id="exampleCheck1" checked>
-        <label class="form-check-label" for="exampleCheck1">རྟེན་བཤད། </label>
+        <label class="form-check-label" for="exampleCheck1">  <?php echo translate('pilgrimage'); ?> </label>
         <input name="organization" value="organization" style="margin-left: 4px;"type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label style="margin-left: 20px;"class="form-check-label" for="exampleCheck1">རྟེན་གཞི། </label>
+        <label style="margin-left: 20px;"class="form-check-label" for="exampleCheck1">  <?php echo translate('organization'); ?> </label>
         </div>
         </form>
 		    <?php
@@ -88,7 +89,7 @@ $baseUrl = getBaseUrl();
                 }else{
                     ?>
                     <p style="color: #999;border-bottom: 1px solid #ececec;margin: 0px 0px 13px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 12px !important; ">
-                    འཚོལ་ཞིབ་ཀྱི་རྙེད་དོན་གྲངས་ <span style="color:rgb(4, 162, 125);" ><?php echo $totalResults ?></span>  འདུག
+                    <?php echo translate('number-of-results'); ?> <span style="color:rgb(4, 162, 125);" ><?php echo $totalResults ?></span>  <?php echo translate('is'); ?>
                         </p>    
                   
                     <?php
@@ -111,7 +112,7 @@ $baseUrl = getBaseUrl();
                     <a href="tensum.php?url=<?php echo $row['slug']; ?>"><h4 style="color: #1e5fa6;" class="card-title"><?php echo $titel ?></h4></a>
                        
                         <div style="border-bottom: 1px solid #ececec;">
-                        <img style="width: 150px;object-fit: cover;flo;float: left;height: 90px;object-position: top;margin-right: 6px;position: relative;top: 8px;" class="img-fluid rounded" src="<?php echo $baseUrl ?>/<?php echo $row['pic']; ?>" alt="">  
+                        <img style="width: 150px;object-fit: cover;flo;float: left;height: 90px;object-position: top;margin-right: 6px;position: relative;top: 8px;" class="img-fluid rounded" src="<?php echo $row['pic']; ?>" alt="">  
                         <p style="position: relative;line-height: 30px; margin: 0px 0px 14px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px !important; background-color: #ffffff; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; max-height: 90px; -webkit-line-clamp: 3;">
                          
                         <?php echo htmlspecialchars($web_content) ?>
@@ -130,7 +131,7 @@ $baseUrl = getBaseUrl();
             } else {
                 ?>
                 <p style="border-bottom: 1px solid #ececec;line-height: 25px;margin: 0px 0px 15px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px; background-color: #ffffff;">
-                <span style="margin-top: 10px!important;color: #9E9E9E;" ><?php echo "ཁྱེད་ཀྱི་འཚོལ་ཞིབ་བྱ་ཡུལ་སྟོང་པ་རེད་་་་" ?></span>
+                
                 <?php
             }
 
