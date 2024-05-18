@@ -41,7 +41,7 @@ if(isset($_GET['page']) & !empty($_GET['page'])){
   $curpage = 1;
 }
 // create startpage, nextpage, endpage variables with values
-$endpage = ceil($totalres/$perpage);
+$endpage = $totalres/$perpage;
 $startpage = 1;
 $nextpage = $curpage + 1;
 $previouspage = $curpage - 1;
