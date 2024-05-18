@@ -255,7 +255,7 @@ include ('includes/navigation.php');
                                             href="delete-pic.php?id=<?php echo urlencode($_GET['id']); ?>&type=tensum">པར་རིས་གསུབ།</a>
                                     <?php else: ?>
                                         <label for="pic">པར་རིས།</label>
-                                        <input type="file" id="pic" name="pic">
+                                        <input type="file" id="pic" name="pic" accept="'.jpg,.jpeg">
                                         <div id="imageTypeError" style="color: red; display: block; margin-top: 10px;">
                                             པར་རིས་ནི། JPEG རྣམ་ཅན་ཁོ་ན་ལས་ངོས་ལེན་མི་བྱེད།</div>
                                     <?php endif; ?>
@@ -267,7 +267,7 @@ include ('includes/navigation.php');
                                             href="delete-sound.php?id=<?php echo urlencode($_GET['id']); ?>&type=tensum">སྒྲ་གསུབ།</a>
                                     <?php else: ?>
                                         <label for="sound">རྟེན་བཤད་འདིའི་སྒྲ།</label>
-                                        <input type="file" id="sound" name="sound">
+                                        <input type="file" id="sound" name="sound" accept=".mp3">
                                         <div id="soundTypeError" style="color: red; display: block; margin-top: 10px;">
                                             སྒྲ་ནི། MP3 རྣམ་ཅན་ཁོ་ན་ལས་ངོས་ལེན་མི་བྱེད།</div>
                                     <?php endif; ?>
