@@ -104,28 +104,6 @@ if (isset($_POST) & !empty($_POST)) {
                 }
             }
 
-            // Check for successful upload of the sound file
-            // if ($_FILES['sound']['error'] == UPLOAD_ERR_OK) { // Correctly checking the sound file now
-            //     $nameSound = $_FILES['sound']['name'];
-            //     $typeSound = $_FILES['sound']['type'];
-            //     $tmp_nameSound = $_FILES['sound']['tmp_name'];
-
-            //     if (isset($nameSound) && !empty($nameSound)) {
-            //         if ($typeSound == "audio/mpeg") { // Correctly checking the MIME type for the sound file
-            //             $locationSound = "../media/audios/";
-            //             $filenameSound = time() . $nameSound; // Securely generating a new filename
-            //             $uploadpathSound = $locationSound . $filenameSound;
-            // $dbpathSound = "media/audios/" . $filenameSound;
-            //             try {
-            //                 $dbpathSound = uploadToS3($key, $tmp_nameSound);
-            //             } catch (AwsException $e) {
-            //                 // Catch any errors that occur during the upload process
-            //             }
-            //         } else {
-            //             $errors[] = "Only Upload Audio files";
-            //         }
-            //     }
-            // }
 
         }
         $dbpathSound = $_POST['sound'];
@@ -282,11 +260,74 @@ include ('includes/navigation.php');
 
                                         <br><label for="sound">རྟེན་བཤད་འདིའི་སྒྲ་ཐག་འཇུག་དགོས།</label>
                                         <input class="form-control" type="text" id="sound" name="sound">
+                                        <div class="form-group">
+                                            <label for="sound_input">སྒྲ་ཐག་འཇུག་དགོས།</label>
+                                            <input type="file" id="sound_input" class="form-control" name="sound_input"
+                                                accept="audio/mpeg">
+                                            <div id="soundUploadProgress" style="margin-top: 10px;"></div>
+                                            <script>
+                                                AWS.config.update({
+                                                    accessKeyId: '<?php echo getenv("AWS_ACCESS_KEY"); ?>',
+                                                    secretAccessKey: '<?php echo getenv("AWS_SECRET_KEY"); ?>',
+                                                    region: 'ap-south-1' // e.g., 'us-east-1'
+                                                });
+                                                var s3 = new AWS.S3()
+                                                document.getElementById('sound_input').addEventListener('change', function (e) {
+                                                    e.preventDefault(); // Prevent form submission (optional, depends on your needs)
+                                                    var file = e.target.files[0];
+                                                    if (file) {
+                                                        var params = {
+                                                            Bucket: 'gompa-tour',
+                                                            Key: 'media/audios/' + file.name,
+                                                            Body: file,
+                                                        };
 
+                                                        // Upload progress tracking
+                                                        var progressBar = document.getElementById('soundUploadProgress');
+                                                        var uploadProgress = { loaded: 0, total: 0 };
+
+                                                        // Upload object
+                                                        var upload = s3.upload(params);
+
+                                                        upload.on('httpUploadProgress', function (event) {
+                                                            uploadProgress.loaded = event.loaded;
+                                                            uploadProgress.total = event.total;
+                                                            var percent = Math.round((event.loaded / event.total) * 100);
+                                                            progressBar.innerHTML = 'Upload Progress: ' + percent + '%';
+                                                        });
+
+                                                        // Execute upload
+                                                        upload.send(function (err, data) {
+                                                            if (err) {
+                                                                console.error('Upload error:', err);
+                                                            } else {
+                                                                console.log('Upload successful:', data);
+
+                                                                // Replace progress with audio tag
+                                                                var audioTag = document.createElement('audio');
+                                                                audioTag.controls = true;
+                                                                var source = document.createElement('source');
+                                                                source.src = data.Location; // Use the S3 URL from the upload response
+                                                                source.type = 'audio/mpeg';
+                                                                audioTag.appendChild(source);
+                                                                progressBar.parentNode.replaceChild(audioTag, progressBar);
+
+                                                                // Update hidden input value
+                                                                document.getElementById('sound').value = data.Location;
+                                                            }
+                                                        });
+                                                    }
+                                                });
+
+                                            </script>
+                                            <!-- Element to show upload progress -->
+                                        </div>
                                     <?php endif; ?>
+
                                 </div>
                                 <script>
-                                    document.getElementById('sound').addEventListener('change', function (e) {
+
+                                    document.getElementById('sound')?.addEventListener('change', function (e) {
                                         var allowedExtensions = /(\.mp3)$/i; // Regex to check for .mp3 extension
                                         var filePath = this.value;
                                         if (!allowedExtensions.exec(filePath)) {
@@ -297,7 +338,7 @@ include ('includes/navigation.php');
                                             document.getElementById('soundTypeError').style.display = 'none'; // Hide error message if file is valid
                                         }
                                     });
-                                    document.getElementById('pic').addEventListener('change', function (e) {
+                                    document.getElementById('pic')?.addEventListener('change', function (e) {
                                         var allowedExtensions = /(\.jpg)$/i; // Regex to check for .mp3 extension
                                         var filePath = this.value;
                                         if (!allowedExtensions.exec(filePath)) {
@@ -308,6 +349,7 @@ include ('includes/navigation.php');
                                             document.getElementById('imageTypeError').style.display = 'none'; // Hide error message if file is valid
                                         }
                                     });
+
                                 </script>
                                 <div class="row">
                                     <div class="col-lg-6">
