@@ -28,6 +28,36 @@ $webRoot = dirname($_SERVER['PHP_SELF']);
 // Construct the base URL
 $baseUrl = $protocol . $serverName . $webRoot;
 
+// Get the web root path (if your application is in a subdirectory e.g., /myapp)
+$webRoot = dirname($_SERVER['PHP_SELF']);
+// Construct the base URL
+$baseUrl = $protocol . $serverName . $webRoot;
+
+// get number of per page results from settings table
+$rppsql = "SELECT * FROM settings WHERE name='resultsperpage'";
+$rppresult = $db->prepare($rppsql);
+$rppresult->execute();
+$rpp = $rppresult->fetch(PDO::FETCH_ASSOC);
+$perpage = $rpp['value'];
+
+if(isset($_GET['page']) & !empty($_GET['page'])){
+  $curpage = $_GET['page'];
+}else{
+  $curpage = 1;
+}
+
+// get the number of total tensum from tensum table
+$sqlPage = "SELECT * FROM events";
+$resultPage = $db->prepare($sqlPage);
+$resultPage->execute();
+$totalres = $resultPage->rowCount();
+// create startpage, nextpage, endpage variables with values
+$endpage =  ceil($totalres/$perpage);
+$startpage = 1;
+$nextpage = $curpage + 1;
+$previouspage = $curpage - 1;
+$start = ($curpage * $perpage) - $perpage;
+
 ?>
 
 
@@ -116,10 +146,10 @@ $baseUrl = $protocol . $serverName . $webRoot;
                     ?>
                     <div style="padding-top: 20px;" class="card-body">
                    
-                    <a href="organization.php?url=<?php echo $row['slug']; ?>"><h4 style="color: #1e5fa6;margin: 1px;font-size: 20px;line-height: 35px;" class="card-title"><?php echo $titel ?></h4></a>
+                    <a href="event.php?url=<?php echo $row['slug']; ?>"><h4 style="color: #1e5fa6;margin: 1px;font-size: 20px;line-height: 35px;" class="card-title"><?php echo $titel ?></h4></a>
                        
                         <div style="border-bottom: 1px solid #ececec;min-height: 110px;">
-                        <img style="width: 150px;object-fit: cover;flo;float: left;height: 90px;object-position: top;margin-right: 6px;position: relative;top: 0px;" class="img-fluid rounded" src="<?php echo $baseUrl ?>/<?php echo $row['pic']; ?>" alt="">  
+                        <img style="width: 150px;object-fit: cover;flo;float: left;height: 90px;object-position: top;margin-right: 6px;position: relative;top: 0px;" class="img-fluid rounded" src="<?php echo $baseUrl ?>/<?php echo $row['pic']; ?>" alt="" onerror="this.onerror=null; this.src='vendor/img/noimage.jpg';">  
                         <p style="position: relative; line-height: 30px; margin: 0px 0px 14px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px !important; background-color: #ffffff; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; max-height: 90px; -webkit-line-clamp: 3;">
                          
                         <?php echo htmlspecialchars($web_content) ?>
@@ -186,10 +216,10 @@ $baseUrl = $protocol . $serverName . $webRoot;
                     ?>
                     <div style="padding-top: 20px;" class="card-body">
                    
-                   <a href="organization.php?url=<?php echo $row['slug']; ?>"><h4 style="color: #1e5fa6;margin: 1px;font-size: 20px;line-height: 35px;" class="card-title"><?php echo $titel ?></h4></a>
+                   <a href="event.php?url=<?php echo $row['slug']; ?>"><h4 style="color: #1e5fa6;margin: 1px;font-size: 20px;line-height: 35px;" class="card-title"><?php echo $titel ?></h4></a>
                       
                        <div style="border-bottom: 1px solid #ececec;min-height: 110px;">
-                       <img style="width: 150px;object-fit: cover;flo;float: left;height: 90px;object-position: top;margin-right: 6px;position: relative;" class="img-fluid rounded" src="<?php echo $baseUrl ?>/<?php echo $row['pic']; ?>" alt="">  
+                       <img style="width: 150px;object-fit: cover;flo;float: left;height: 90px;object-position: top;margin-right: 6px;position: relative;" class="img-fluid rounded" src="<?php echo $baseUrl ?>/<?php echo $row['pic']; ?>" alt="" onerror="this.onerror=null; this.src='vendor/img/noimage.jpg';">  
                        <p style="position: relative; line-height: 30px; margin: 0px 0px 14px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px !important; background-color: #ffffff; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; max-height: 90px; -webkit-line-clamp: 3;">
                         
                        <?php echo htmlspecialchars($web_content) ?>
@@ -202,7 +232,31 @@ $baseUrl = $protocol . $serverName . $webRoot;
            ?>
 
 
-
+<div style="margin: 10px;">
+          <!-- Pagination -->
+          <ul class="pagination justify-content-center mb-4">
+                        <?php if($curpage != $startpage){ ?>
+                        <li class="page-item">
+                          <a class="page-link" href="?page=<?php echo $startpage; ?>">&laquo; <?php echo htmlspecialchars(translate('first'), ENT_QUOTES, 'UTF-8'); ?></a>
+                        </li>
+                        <?php } ?>
+                        <?php if($curpage >= 2){ ?>
+                        <li class="page-item">
+                          <a class="page-link" href="?page=<?php echo $previouspage; ?>"><?php echo $previouspage; ?></a>
+                        </li>
+                        <?php } ?>
+                        <?php if($curpage != $endpage ){ ?>
+                        <li class="page-item">
+                          <a class="page-link" href="?page=<?php echo $nextpage; ?>"><?php echo $nextpage; ?></a>
+                        </li>
+                        <?php } ?>
+                        <?php if($curpage != $endpage){ ?>
+                        <li class="page-item">
+                          <a class="page-link" href="?page=<?php echo $endpage; ?>">&raquo; <?php echo htmlspecialchars(translate('last'), ENT_QUOTES, 'UTF-8'); ?></a>
+                        </li>
+                        <?php } ?>
+                      </ul>
+        </div>
   </div>
   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
   <?php echo htmlspecialchars(translate('calendar'), ENT_QUOTES, 'UTF-8'); ?>

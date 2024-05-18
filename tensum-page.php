@@ -242,7 +242,7 @@ $start = ($curpage * $perpage) - $perpage;
             ?>
  
         </form>
-        <div>
+        <div style="margin: 10px;">
           <!-- Pagination -->
           <ul class="pagination justify-content-center mb-4">
                         <?php if($curpage != $startpage){ ?>
