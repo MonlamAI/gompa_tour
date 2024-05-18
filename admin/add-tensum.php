@@ -269,8 +269,8 @@ include ('includes/navigation.php');
                                         <a
                                             href="delete-sound.php?id=<?php echo urlencode($_GET['id']); ?>&type=tensum">སྒྲ་གསུབ།</a>
                                     <?php else: ?>
-                                        <label for="sound">རྟེན་བཤད་འདིའི་སྒྲ།</label>
-                                        <input type="text" id="sound" name="sound">
+                                        <br><label for="sound">རྟེན་བཤད་འདིའི་སྒྲ་ཐག་འཇུག་དགོས།</label>
+                                        <input class="form-control" type="text" id="sound" name="sound">
                                         <!-- <div id="soundTypeError" style="color: red; display: block; margin-top: 10px;">
                                             སྒྲ་ནི། MP3 རྣམ་ཅན་ཁོ་ན་ལས་ངོས་ལེན་མི་བྱེད།</div> -->
                                     <?php endif; ?>

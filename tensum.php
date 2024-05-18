@@ -107,7 +107,7 @@ if ($_SESSION['lang'] === 'en') {
       } else if ($_SESSION['lang'] === 'bo') {
         ?>
           <audio style="width: 100%;" controls>
-            <source src="<?php echo $baseUrl ?>/<?php echo $post['sound']; ?>" type="audio/mp3">
+            <source src="<?php echo $post['sound']; ?>" type="audio/mp3">
             Your browser does not support the audio element.
           </audio>
         <?php
