@@ -47,8 +47,16 @@ $baseUrl = getBaseUrl();
 
           // Assuming $_SESSION['lang'] is set securely elsewhere
           // $lang = $_SESSION['lang'] ?? 'en'; // Default to English if not set
-          $lang ='en'; // Default to English if not set
-          
+           // Default to English if not set
+          if($_SESSION['lang'] === 'en'){
+            $lang ='en';
+          }else if($_SESSION['lang'] === 'bo'){
+            $lang ='bo';
+       
+          }else{
+            $lang ='en';
+       
+          }
           // $showlang = $_SESSION['showlang'] ?? 'no';
           $showlang ='no';
 
