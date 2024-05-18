@@ -57,9 +57,9 @@ $gonpaName ="<span>ཐེག་མཆོག་རྣམ་གྲོལ་གླ�
 
     <!-- Post Content Column -->
     <div class="col-lg-12">
-    <a style="float: left;" href="javascript:history.back()"> <span style="font-size: 22px;position: relative;top: 2px;"><i class='fa fa-angle-left'></i></span> <?php echo htmlspecialchars(translate('go-back'), ENT_QUOTES, 'UTF-8'); ?></a>
+    <a style="float: inline-start;margin-bottom: 8px;" href="javascript:history.back()"> <span style="font-size: 22px;position: relative;top: 2px;"><i class='fa fa-angle-left'></i></span> <?php echo htmlspecialchars(translate('go-back'), ENT_QUOTES, 'UTF-8'); ?></a>
 
-      <h4 style="padding-top: 0px;margin-bottom: 0px; text-align:center;" class="map-title">ས་ཁྲ་བརྒྱུད་ནས་འཚོལ་ཞིབ།</h4>
+      <h4 style="position: relative;padding-top: 10px;font-size:16px !important;left: 30px;" class="map-title">ས་ཁྲ་བརྒྱུད་ནས་འཚོལ་ཞིབ།</h4>
       <div style="text-align: right;">
         <button class="btn" id="full-screen" style="margin-bottom: 5px;" onclick="fullScreenview()"><span><i class='fa fa-arrows-alt'></i></span>  Full Screen</button>
       </div>
