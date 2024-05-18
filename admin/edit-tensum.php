@@ -1,4 +1,6 @@
 <?php
+use Aws\Exception\AwsException;
+
 // Enable error reporting
 error_reporting(E_ALL);
 // Display errors
@@ -103,30 +105,30 @@ if (isset($_POST) & !empty($_POST)) {
             }
 
             // Check for successful upload of the sound file
-            if ($_FILES['sound']['error'] == UPLOAD_ERR_OK) { // Correctly checking the sound file now
-                $nameSound = $_FILES['sound']['name'];
-                $typeSound = $_FILES['sound']['type'];
-                $tmp_nameSound = $_FILES['sound']['tmp_name'];
+            // if ($_FILES['sound']['error'] == UPLOAD_ERR_OK) { // Correctly checking the sound file now
+            //     $nameSound = $_FILES['sound']['name'];
+            //     $typeSound = $_FILES['sound']['type'];
+            //     $tmp_nameSound = $_FILES['sound']['tmp_name'];
 
-                if (isset($nameSound) && !empty($nameSound)) {
-                    if ($typeSound == "audio/mpeg") { // Correctly checking the MIME type for the sound file
-                        $locationSound = "../media/audios/";
-                        $filenameSound = time() . $nameSound; // Securely generating a new filename
-                        $uploadpathSound = $locationSound . $filenameSound;
-                        $dbpathSound = "media/audios/" . $filenameSound;
-                        try {
-                            $dbpathSound = uploadToS3($key, $tmp_nameSound);
-                        } catch (AwsException $e) {
-                            // Catch any errors that occur during the upload process
-                        }
-                    } else {
-                        $errors[] = "Only Upload Audio files";
-                    }
-                }
-            }
+            //     if (isset($nameSound) && !empty($nameSound)) {
+            //         if ($typeSound == "audio/mpeg") { // Correctly checking the MIME type for the sound file
+            //             $locationSound = "../media/audios/";
+            //             $filenameSound = time() . $nameSound; // Securely generating a new filename
+            //             $uploadpathSound = $locationSound . $filenameSound;
+            // $dbpathSound = "media/audios/" . $filenameSound;
+            //             try {
+            //                 $dbpathSound = uploadToS3($key, $tmp_nameSound);
+            //             } catch (AwsException $e) {
+            //                 // Catch any errors that occur during the upload process
+            //             }
+            //         } else {
+            //             $errors[] = "Only Upload Audio files";
+            //         }
+            //     }
+            // }
 
         }
-
+        $dbpathSound = $_POST['sound'];
 
 
         $sql = "UPDATE tensum SET tbtitle=:tbtitle, entitle=:entitle, tbcontent=:tbcontent, encontent=:encontent, status=:status, callnumber=:callnumber, slug=:slug, ";
@@ -297,9 +299,8 @@ include ('includes/navigation.php');
                                             href="delete-sound.php?id=<?php echo urlencode($_GET['id']); ?>&type=tensum">སྒྲ་གསུབ།</a>
                                     <?php else: ?>
                                         <label for="sound">རྟེན་བཤད་འདིའི་སྒྲ།</label>
-                                        <input type="file" id="sound" name="sound">
-                                        <div id="soundTypeError" style="color: red; display: block; margin-top: 10px;">
-                                            སྒྲ་ནི། MP3 རྣམ་ཅན་ཁོ་ན་ལས་ངོས་ལེན་མི་བྱེད།</div>
+                                        <input type="text" id="sound" name="sound">
+
                                     <?php endif; ?>
                                 </div>
                                 <script>
