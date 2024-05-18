@@ -111,8 +111,12 @@ if (isset($_POST) & !empty($_POST)) {
 
             $audio_key = 'media/audios/' . time() . $nameSound; // The key is the path and filename in the S3 bucket
 
+
+
             if (isset($nameSound) && !empty($nameSound)) {
-                if ($typeSound == "audio/mpeg") { // Correctly checking the MIME type for the sound file
+                echo $typeSound;
+                exit;
+                if ($typeSound == "audio/mp3") { // Correctly checking the MIME type for the sound file
                     $locationSound = "../media/audios/";
                     $filenameSound = time() . $nameSound; // Securely generating a new filename
                     $uploadpathSound = $locationSound . $filenameSound;
