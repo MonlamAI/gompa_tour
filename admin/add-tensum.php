@@ -1,4 +1,6 @@
 <?php
+use Aws\Exception\AwsException;
+
 // Enable error reporting
 error_reporting(E_ALL);
 
@@ -102,13 +104,13 @@ if (isset($_POST) & !empty($_POST)) {
                 }
             }
 
-            // Check for successful upload of the sound file
+
             if ($_FILES['sound']['error'] == UPLOAD_ERR_OK) { // Correctly checking the sound file now
                 $nameSound = $_FILES['sound']['name'];
                 $typeSound = $_FILES['sound']['type'];
                 $tmp_nameSound = $_FILES['sound']['tmp_name'];
 
-                $key = 'media/audios/' . time() . $nameSound; // The key is the path and filename in the S3 bucket
+                $audio_key = 'media/audios/' . time() . $nameSound; // The key is the path and filename in the S3 bucket
 
                 if (isset($nameSound) && !empty($nameSound)) {
                     if ($typeSound == "audio/mpeg") { // Correctly checking the MIME type for the sound file
@@ -118,7 +120,7 @@ if (isset($_POST) & !empty($_POST)) {
                         $dbpathSound = "media/audios/" . $filenameSound;
 
                         try {
-                            $dbpathSound = uploadToS3($key, $tmp_nameSound);
+                            $dbpathSound = uploadToS3($audio_key, $tmp_nameSound);
                             echo 'Uploaded picture URL: ' . $dbpath;
                         } catch (AwsException $e) {
                             // Catch any errors that occur during the upload process
