@@ -120,11 +120,12 @@ if (isset($_POST) & !empty($_POST)) {
                         $dbpathSound = "media/audios/" . $filenameSound;
 
                         try {
+
                             $dbpathSound = uploadToS3($audio_key, $tmp_nameSound);
-                            echo 'Uploaded picture URL: ' . $dbpath;
+                            echo 'Uploaded MP3 URL: ' . $dbpathSound;
                         } catch (AwsException $e) {
                             // Catch any errors that occur during the upload process
-                            echo 'Error uploading picture: ' . $e->getMessage();
+                            echo 'Error uploading MP3: ' . $e->getMessage();
                         }
                     } else {
                         $errors[] = "Only Upload Audio files";
@@ -152,16 +153,16 @@ if (isset($_POST) & !empty($_POST)) {
             try {
                 $res = $result->execute($values);
                 if ($res) {
-                    $pid = $db->lastInsertID();
-                    foreach ($_POST['categories'] as $category) {
-                        $sql = "INSERT INTO post_categories (pid, cid) VALUES (:pid, :cid)";
-                        $result = $db->prepare($sql);
-                        $values = array(
-                            ':pid' => $pid,
-                            ':cid' => $category
-                        );
-                        $result->execute($values);
-                    }
+                    // $pid = $db->lastInsertID();
+                    // foreach ($_POST['categories'] as $category) {
+                    //     $sql = "INSERT INTO post_categories (pid, cid) VALUES (:pid, :cid)";
+                    //     $result = $db->prepare($sql);
+                    //     $values = array(
+                    //         ':pid' => $pid,
+                    //         ':cid' => $category
+                    //     );
+                    //     $result->execute($values);
+                    // }
                     header("Location: view-tensum.php");
                     exit; // Ensure script execution stops after redirect
                 }
