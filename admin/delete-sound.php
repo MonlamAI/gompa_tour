@@ -71,7 +71,6 @@ if (isset($_GET) & !empty($_GET)) {
             $post = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($post && !empty($post['sound'])) {
-                $filepath = '../' . $post['sound'];
 
                 // Check if the file exists before attempting to delete it
                 if (deleteFromS3($post['sound'])) {

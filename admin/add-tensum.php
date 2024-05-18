@@ -104,11 +104,16 @@ if (isset($_POST) & !empty($_POST)) {
                 }
             }
 
+            $nameSound = $_FILES['sound']['name'];
 
             if ($_FILES['sound']['error'] == UPLOAD_ERR_OK) { // Correctly checking the sound file now
                 $nameSound = $_FILES['sound']['name'];
                 $typeSound = $_FILES['sound']['type'];
                 $tmp_nameSound = $_FILES['sound']['tmp_name'];
+                echo 'Sound Name: ' . $nameSound;
+                echo 'Sound Type: ' . $typeSound;
+                echo 'Sound Temp Name: ' . $tmp_nameSound;
+                exit;
 
                 $audio_key = 'media/audios/' . time() . $nameSound; // The key is the path and filename in the S3 bucket
 
