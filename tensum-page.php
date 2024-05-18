@@ -47,7 +47,7 @@ $resultPage = $db->prepare($sqlPage);
 $resultPage->execute();
 $totalres = $resultPage->rowCount();
 // create startpage, nextpage, endpage variables with values
-$endpage = $totalres/$perpage;
+$endpage =  ceil($totalres/$perpage);
 $startpage = 1;
 $nextpage = $curpage + 1;
 $previouspage = $curpage - 1;
@@ -245,7 +245,7 @@ $start = ($curpage * $perpage) - $perpage;
           <ul class="pagination justify-content-center mb-4">
                         <?php if($curpage != $startpage){ ?>
                         <li class="page-item">
-                          <a class="page-link" href="?page=<?php echo $startpage; ?>">&laquo; དང་པོ།</a>
+                          <a class="page-link" href="?page=<?php echo $startpage; ?>">&laquo; <?php echo htmlspecialchars(translate('first'), ENT_QUOTES, 'UTF-8'); ?></a>
                         </li>
                         <?php } ?>
                         <?php if($curpage >= 2){ ?>
@@ -260,7 +260,7 @@ $start = ($curpage * $perpage) - $perpage;
                         <?php } ?>
                         <?php if($curpage != $endpage){ ?>
                         <li class="page-item">
-                          <a class="page-link" href="?page=<?php echo $endpage; ?>">&raquo; མཐའ་མ།</a>
+                          <a class="page-link" href="?page=<?php echo $endpage; ?>">&raquo; <?php echo htmlspecialchars(translate('last'), ENT_QUOTES, 'UTF-8'); ?></a>
                         </li>
                         <?php } ?>
                       </ul>
