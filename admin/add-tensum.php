@@ -108,13 +108,8 @@ if (isset($_POST) & !empty($_POST)) {
             $nameSound = $_FILES['sound']['name'];
             $typeSound = $_FILES['sound']['type'];
             $tmp_nameSound = $_FILES['sound']['tmp_name'];
-            echo 'Sound Name: ' . $nameSound;
-            echo 'Sound Type: ' . $typeSound;
-            echo 'Sound Temp Name: ' . $tmp_nameSound;
 
             $audio_key = 'media/audios/' . time() . $nameSound; // The key is the path and filename in the S3 bucket
-            echo 'Audio Key: ' . $audio_key;
-            exit;
 
             if (isset($nameSound) && !empty($nameSound)) {
                 if ($typeSound == "audio/mpeg") { // Correctly checking the MIME type for the sound file
