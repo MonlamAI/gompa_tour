@@ -60,7 +60,7 @@ $baseUrl = $protocol . $serverName . $webRoot;
     </section>
     <section>
         <h2>Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, please contact us at [your contact information].</p>
+        <p>If you have any questions about this Privacy Policy, please contact us at <span style="color: #0283ff;">monlamtech@gmail.com</span>.</p>
     </section> 
 
 
