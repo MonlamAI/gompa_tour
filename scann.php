@@ -21,7 +21,9 @@ include('includes/navigation.php');
   <div class="row">
 
     <!-- Post Content Column -->
-    <div class="col-lg-8">      
+    <div class="col-lg-8"> 
+    <a href="javascript:history.back()"> <span style="font-size: 22px;position: relative;top: 2px;"><i class='fa fa-angle-left'></i></span> <?php echo htmlspecialchars(translate('go-back'), ENT_QUOTES, 'UTF-8'); ?></a>
+     
       <h4 class="mt-4"style="margin-left: 20px; margin-bottom: 15px;"><?php echo translate('search_qr'); ?></h4>
       
       <div class="col-lg-8" id="video-container">
