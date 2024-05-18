@@ -59,12 +59,12 @@ if($_SESSION['lang'] === 'en'){
       <hr>
 
       <!-- Post Content -->
-      <div>
+      <!-- <div>
       <audio style="width: 100%;" controls>
         <source src="media/audios/bensound-buddy.mp3" type="audio/mp3">
         Your browser does not support the audio element.
       </audio>
-      </div>
+      </div> -->
      
       <div style="line-height: 30px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 15px;" class="content">
         <?php echo $web_content; ?>
