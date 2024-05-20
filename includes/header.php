@@ -24,10 +24,23 @@ require_once 'init.php';
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="manifest" href="manifest.webmanifest">
     <script>
-        //if browser support service worker
-        if('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('sw.js');
-        };
+        
+        window.addEventListener('load', ()=> {
+            registerSW();
+        });
+        // Register the Service worker
+        async function registerSW() {
+            if ('serviceWorker' in navigator){
+            try {
+                await navigator
+                .serviceWorker
+                .register('sw.js');
+            }
+            catch (e){
+                console.log('SW registration failed');
+            }
+        }
+        }
       </script>
 </head>
 
