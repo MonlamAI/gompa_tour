@@ -39,13 +39,43 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
 <!-- Page Content -->
 <main>
 <div class="p-1 text-center bg-body-tertiary rounded-3">
-    
+
     <img class="bi mt-6 mb-3" src="vendor/img/logo.png" alt="" width="100"style="padding-top: 20px;">
     <h4  class="text-body-emphasis"><?php echo htmlspecialchars(translate('home_main_title'), ENT_QUOTES, 'UTF-8'); ?></h4>
     <p style="text-align: center;" class="col-lg-8 mx-auto fs-5 text-muted">
      <span style="color:#026dc4;font-size: 20px;"><?php echo htmlspecialchars(translate('home_welcome_massge'), ENT_QUOTES, 'UTF-8'); ?>
-     <!-- </span> <br><?php echo htmlspecialchars(translate('home_discretion'), ENT_QUOTES, 'UTF-8'); ?> 
-    <br><a href="post-page.php"><?php echo translate('how_to_use'); ?></a> -->
+     <br><button class="btn btn-secondary" style="color: white;background: #e2a004;border: 1px solid #e2a004;" id="installBtn" hidden><?php echo htmlspecialchars(translate('install-the-app-on-your-device'), ENT_QUOTES, 'UTF-8'); ?></button>
+     <script>
+      let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the mini-infobar from appearing on mobile
+            e.preventDefault();
+            // Stash the event so it can be triggered later.
+            deferredPrompt = e;
+            // Update UI to show the install button
+            document.getElementById('installBtn').hidden = false;
+        });
+
+        document.getElementById('installBtn').addEventListener('click', (e) => {
+            // Show the install prompt
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the install prompt');
+                } else {
+                    console.log('User dismissed the install prompt');
+                }
+                deferredPrompt = null;
+            });
+        });
+
+        window.addEventListener('appinstalled', (evt) => {
+            // Hide the install button after the app is installed
+            document.getElementById('installBtn').hidden = true;
+        });
+     </script>
     </p>
    
   </div>
@@ -53,6 +83,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
 <div class="container">
 
 <div  class="row ">
+
 
     
 </div>
@@ -62,7 +93,8 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
               <div style="background: linear-gradient(to top, rgba(0, 163, 251, 1), rgba(251, 251, 251, 0.1)), linear-gradient(to right, #026dc4, #4492e2); border: 0px; border-radius: 10px; min-height: 500px;">
               <div style="text-align: center; border-bottom: 1px solid #297ecc; padding-bottom: 4px;">
               <img style="max-height: 240px;min-height: 240px;object-fit: cover;object-position: top;object-fit: contain;" class="card-img-top" src="vendor/img/buddha.png" alt="">
-              </div>
+              
+            </div>
                 
                 <div class="card-body">
                   <p style="color: white; line-height: 40px;text-align: center; font-size: 25px!important; padding-top: 4px;" class="card-text">
