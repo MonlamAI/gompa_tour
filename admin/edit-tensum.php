@@ -283,7 +283,9 @@ include ('includes/navigation.php');
                                                         };
 
                                                         // Upload progress tracking
+                                                        document.getElementById('sound').value = "wait while uploading";
                                                         var progressBar = document.getElementById('soundUploadProgress');
+                                                        progressBar.innerHTML = "uploading ... "
                                                         var uploadProgress = { loaded: 0, total: 0 };
 
                                                         // Upload object

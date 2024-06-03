@@ -324,20 +324,20 @@ include ('includes/navigation.php');
                                                 Key: 'media/audios/' + file.name,
                                                 Body: file,
                                             };
-
+                                            document.getElementById('sound').value = "wait while uploading";
                                             // Upload progress tracking
                                             var progressBar = document.getElementById('soundUploadProgress');
+                                            progressBar.innerHTML = "uploading ... "
                                             var uploadProgress = { loaded: 0, total: 0 };
 
                                             // Upload object
                                             var upload = s3.upload(params);
 
                                             upload.on('httpUploadProgress', function (event) {
-                                                uploadProgress.loaded = event.loaded;
-                                                uploadProgress.total = event.total;
                                                 var percent = Math.round((event.loaded / event.total) * 100);
                                                 progressBar.innerHTML = 'Upload Progress: ' + percent + '%';
                                             });
+
 
                                             // Execute upload
                                             upload.send(function (err, data) {
