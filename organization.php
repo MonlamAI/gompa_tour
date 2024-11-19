@@ -72,7 +72,7 @@ $map = $post['map'];
       <?php 
       if($_SESSION['lang'] === 'en'){
         ?>
-       <div style="background: #eceae8;border-radius: 5px;padding: 4px;">
+       <!-- <div style="background: #eceae8;border-radius: 5px;padding: 4px;">
       <button style="color: #f7fdff;background-color: #676b6a;" type="button" onclick="readText()" class="btn play-word">
         <i class="fa fa-play-circle"></i>
         </button>
@@ -111,7 +111,16 @@ $map = $post['map'];
             };
           </script>
 
-          </div>
+          </div> -->
+          <audio style="width: 100%;" controls>
+          <?php 
+          $str_to_replace = 'EP';
+          $ensound = $post['sound']; 
+          $ensound = $str_to_replace . substr($ensound, 2);
+          ?>
+        <source src="<?php echo $post['sound']; ?>" type="audio/mp3">
+        
+        </audio>
         <?php
         
       }else if($_SESSION['lang'] === 'bo'){
