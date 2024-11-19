@@ -150,7 +150,7 @@ $start = ($curpage * $perpage) - $perpage;
                     <a href="organization.php?url=<?php echo $row['slug']; ?>"><h4 style="color: #1e5fa6;margin: 1px;font-size: 20px;line-height: 35px;" class="card-title"><?php echo $titel ?></h4></a>
                        
                         <div style="border-bottom: 1px solid #ececec;min-height: 110px;">
-                        <img style="width: 150px;object-fit: cover;flo;float: left;height: 90px;object-position: top;margin-right: 6px;position: relative;top: 0px;" class="img-fluid rounded" src="<?php echo $baseUrl ?>/<?php echo $row['pic']; ?>" alt="" onerror="this.onerror=null; this.src='vendor/img/noimage.jpg';">  
+                        <img style="width: 150px;object-fit: cover;flo;float: left;height: 90px;object-position: top;margin-right: 6px;position: relative;top: 0px;" class="img-fluid rounded" src="<?php echo $row['pic']; ?>" alt="" onerror="this.onerror=null; this.src='vendor/img/noimage.jpg';">  
                         <p style="position: relative; line-height: 30px; margin: 0px 0px 14px; padding: 0px 0px 10px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 14px !important; background-color: #ffffff; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; max-height: 90px; -webkit-line-clamp: 3;">
                          
                         <?php echo htmlspecialchars($web_content) ?>
