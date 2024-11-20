@@ -118,7 +118,7 @@ $map = $post['map'];
           $ensound = $post['sound']; 
           $ensound = $str_to_replace . substr($ensound, 2);
           ?>
-        <source src="<?php echo $post['sound']; ?>" type="audio/mp3">
+        <source src="<?php echo $ensound; ?>" type="audio/mp3">
         
         </audio>
         <?php
@@ -147,7 +147,7 @@ $map = $post['map'];
 
         
 
-        <script>
+        <!-- <script>
           let msg; // Define outside to make it reusable
 
           function populateVoiceList() {
@@ -197,7 +197,7 @@ $map = $post['map'];
             speakText();
           }
 
-        </script>
+        </script> -->
           </div>
 
           <?php
