@@ -62,7 +62,7 @@ if ($_SESSION['lang'] === 'en') {
       <?php
       if ($_SESSION['lang'] === 'en') {
         ?>
-        <div style="background: #eceae8;border-radius: 5px;padding: 4px;">
+        <!-- <div style="background: #eceae8;border-radius: 5px;padding: 4px;">
           <button style="color: #f7fdff;background-color: #676b6a;" type="button" onclick="readText()"
             class="btn play-word">
             <i class="fa fa-play-circle"></i>
@@ -103,7 +103,15 @@ if ($_SESSION['lang'] === 'en') {
             };
           </script>
 
-        </div>
+        </div> -->
+        <audio style="width: 100%;" controls>
+          <?php 
+          $str_to_replace = 'EN';
+          $ensound = $post['sound']; 
+          $ensound = $str_to_replace . substr($ensound, 2);
+          ?>
+        <source src="<?php echo $ensound; ?>" type="audio/mp3">
+        
         <?php
 
       } else if ($_SESSION['lang'] === 'bo') {
