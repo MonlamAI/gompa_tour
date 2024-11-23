@@ -114,12 +114,11 @@ $map = $post['map'];
           </div> -->
           <audio style="width: 100%;" controls>
           <?php 
-          
+          $str_to_replace = 'EN';
           $ensound = $post['sound']; 
-          $ensound = $str_to_replace("GP", "EP", $ensound);
+          $ensound = $str_to_replace($ensound, 2);
           ?>
         <source src="<?php echo $ensound; ?>" type="audio/mp3">
-        
         </audio>
         <?php
         
