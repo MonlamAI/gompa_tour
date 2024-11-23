@@ -104,14 +104,17 @@ if ($_SESSION['lang'] === 'en') {
           </script>
 
         </div> -->
-        <audio style="width: 100%;" controls>
-          <?php 
-          $ensound = $post['sound']; 
-       
-          $ensound = str_ireplace("TN", "EN", $ensound);
+        <?php 
+          $ensound = isset($post['sound']) ? $post['sound'] : '';
+          if (!empty($ensound) && file_exists($ensound)) {
+              $ensound = str_replace("TN", "EN", $ensound);
+              ?>
+              <audio style="width: 100%;" controls>
+                  <source src="<?php echo htmlspecialchars($ensound, ENT_QUOTES, 'UTF-8'); ?>" type="audio/mp3">
+              </audio>
+           <?php
+          }
           ?>
-        <source src="<?php echo $ensound; ?>" type="audio/mp3">
-        </audio>
         
         <?php
 
