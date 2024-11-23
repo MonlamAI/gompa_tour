@@ -116,10 +116,11 @@ $map = $post['map'];
           <?php 
           $str_to_replace = 'EN';
           $ensound = $post['sound']; 
-          $ensound = $str_to_replace($ensound, 2);
+          $ensound = $str_to_replace . substr($ensound, 2);
           ?>
         <source src="<?php echo $ensound; ?>" type="audio/mp3">
         </audio>
+        
         <?php
         
       }else if($_SESSION['lang'] === 'bo'){
