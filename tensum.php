@@ -62,48 +62,7 @@ if ($_SESSION['lang'] === 'en') {
       <?php
       if ($_SESSION['lang'] === 'en') {
         ?>
-        <!-- <div style="background: #eceae8;border-radius: 5px;padding: 4px;">
-          <button style="color: #f7fdff;background-color: #676b6a;" type="button" onclick="readText()"
-            class="btn play-word">
-            <i class="fa fa-play-circle"></i>
-          </button>
-          <button style="color: #f75555;background-color: #686b6a;" type="button" onclick="stopText()"
-            class="btn stop-word">
-            <i class="fa fa-stop-circle"></i>
-          </button>
-          <span style="color: #797777;font-size: 14px;font-family: Monlam;">Text to Read in English</span>
-          <script>
-            var currentSpeech = null;
-
-            function readText() {
-              if (window.speechSynthesis.speaking || window.speechSynthesis.paused) {
-                return; // Already speaking or paused, so do nothing.
-              }
-
-              var textElement = document.getElementById('textToRead');
-              var text = textElement.textContent || textElement.innerText;
-
-              var speech = new SpeechSynthesisUtterance(text);
-              speech.lang = 'en-US'; // Set language to English
-
-              currentSpeech = speech; // Keep a reference to the current speech
-
-              window.speechSynthesis.speak(speech);
-            }
-
-            function stopText() {
-              if (window.speechSynthesis.speaking || window.speechSynthesis.paused) {
-                window.speechSynthesis.cancel(); // This will stop the speech
-                currentSpeech = null;
-              }
-            }
-
-            speechSynthesis.onvoiceschanged = function () {
-              // Voices are loaded, you can now set a specific voice if needed.
-            };
-          </script>
-
-        </div> -->
+        
         <audio style="width: 100%;" controls>
           <?php 
     
