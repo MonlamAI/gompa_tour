@@ -1,9 +1,9 @@
-<?php 
+<?php
 session_start();
-require_once('includes/connect.php');
-include('includes/header.php');
-include('comment.php');
-include('includes/navigation.php'); 
+require_once ('includes/connect.php');
+include ('includes/header.php');
+include ('comment.php');
+include ('includes/navigation.php');
 // Check if HTTPS is used, otherwise default to HTTP
 $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 // Get the server name (e.g., www.example.com)
@@ -13,15 +13,14 @@ $port = $_SERVER['SERVER_PORT'];
 
 // If the port is not standard, include it in the URL
 if (($protocol === "https://" && $port != 443) || ($protocol === "http://" && $port != 80)) {
-    $serverName .= ":" . $port;
+  $serverName .= ":" . $port;
 }
 // Get the web root path (if your application is in a subdirectory e.g., /myapp)
 $webRoot = dirname($_SERVER['PHP_SELF']);
 // Construct the base URL
 $baseUrl = $protocol . $serverName . $webRoot;
 
-
-$sql = "SELECT * FROM organization WHERE slug=? AND status='published'";
+$sql = "SELECT * FROM tensum WHERE slug=? AND status='published'";
 $result = $db->prepare($sql);
 $result->execute(array($_GET['url']));
 $post = $result->fetch(PDO::FETCH_ASSOC);
@@ -30,84 +29,113 @@ $usersql = "SELECT * FROM users WHERE id=?";
 $userresult = $db->prepare($usersql);
 $userresult->execute(array($post['uid']));
 $user = $userresult->fetch(PDO::FETCH_ASSOC);
-if($_SESSION['lang'] === 'en'){
+if ($_SESSION['lang'] === 'en') {
   $titel = $post['entitle'];
   $web_content = $post['encontent'];
-}else if($_SESSION['lang'] === 'bo'){
+} else if ($_SESSION['lang'] === 'bo') {
   $titel = $post['tbtitle'];
   $web_content = $post['tbcontent'];
-}else{
+} else {
   $titel = $post['entitle'];
   $web_content = $post['encontent'];
 }
-$map = $post['map'];
-
-
-
 
 ?>
 <!-- Page Content -->
-
 <div class="container">
-
   <div class="row">
-
     <!-- Post Content Column -->
     <div class="col-lg-8">
     <a href="javascript:history.back()"> <span style="font-size: 22px;position: relative;top: 2px;"><i class='fa fa-angle-left'></i></span> <?php echo htmlspecialchars(translate('go-back'), ENT_QUOTES, 'UTF-8'); ?></a>
 
       <!-- Title -->
-      
       <h4 style="margin-bottom: 20px; line-height: 35px; " class="mt-4"><?php echo $titel; ?></h4>
       <!-- Author -->
       <!-- Preview Image -->
-      <?php if(isset($post['pic']) & !empty($post['pic'])){ ?>
-          <img style="width: 100%;object-fit: cover;" class="img-fluid rounded" src="<?php echo $post['pic']; ?>" alt="" onerror="this.onerror=null; this.src='vendor/img/noimage.jpg';">
-      <?php }else{ ?>
-          <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+      <?php if (isset($post['pic']) & !empty($post['pic'])) { ?>
+        <img style="width: 100%;object-fit: cover;" class="img-fluid rounded" src="<?php echo $post['pic']; ?>" alt="" onerror="this.onerror=null; this.src='vendor/img/noimage.jpg';">
+      <?php } else { ?>
+        <img class="img-fluid rounded" src="vendor/img/noimage.jpg" alt="">
       <?php } ?>
       <hr>
-
       <!-- Post Content -->
-      <?php 
-      if($_SESSION['lang'] === 'en'){
+      <?php
+      if ($_SESSION['lang'] === 'en') {
         ?>
-       
-         <audio style="width: 100%;" controls>
+        <!-- <div style="background: #eceae8;border-radius: 5px;padding: 4px;">
+          <button style="color: #f7fdff;background-color: #676b6a;" type="button" onclick="readText()"
+            class="btn play-word">
+            <i class="fa fa-play-circle"></i>
+          </button>
+          <button style="color: #f75555;background-color: #686b6a;" type="button" onclick="stopText()"
+            class="btn stop-word">
+            <i class="fa fa-stop-circle"></i>
+          </button>
+          <span style="color: #797777;font-size: 14px;font-family: Monlam;">Text to Read in English</span>
+          <script>
+            var currentSpeech = null;
+
+            function readText() {
+              if (window.speechSynthesis.speaking || window.speechSynthesis.paused) {
+                return; // Already speaking or paused, so do nothing.
+              }
+
+              var textElement = document.getElementById('textToRead');
+              var text = textElement.textContent || textElement.innerText;
+
+              var speech = new SpeechSynthesisUtterance(text);
+              speech.lang = 'en-US'; // Set language to English
+
+              currentSpeech = speech; // Keep a reference to the current speech
+
+              window.speechSynthesis.speak(speech);
+            }
+
+            function stopText() {
+              if (window.speechSynthesis.speaking || window.speechSynthesis.paused) {
+                window.speechSynthesis.cancel(); // This will stop the speech
+                currentSpeech = null;
+              }
+            }
+
+            speechSynthesis.onvoiceschanged = function () {
+              // Voices are loaded, you can now set a specific voice if needed.
+            };
+          </script>
+
+        </div> -->
+        <audio style="width: 100%;" controls>
           <?php 
-         $ensound = $post['sound']; 
-          $ensound = $str_to_replace("GP", "EP", $ensound);
+          $str_to_replace = 'EN';
+          $ensound = $post['sound']; 
+          $ensound = $str_to_replace . substr($ensound, 2);
           ?>
         <source src="<?php echo $ensound; ?>" type="audio/mp3">
-        
         </audio>
-        <?php
         
-      }else if($_SESSION['lang'] === 'bo'){
+        <?php
+
+      } else if ($_SESSION['lang'] === 'bo') {
         ?>
-        <audio style="width: 100%;" controls>
-        <source src="<?php echo $post['sound']; ?>" type="audio/mp3">
-        Your browser does not support the audio element.
-        </audio>
+          <audio style="width: 100%;" controls>
+            <source src="<?php echo $post['sound']; ?>" type="audio/mp3">
+            Your browser does not support the audio element.
+          </audio>
         <?php
-        
+
       }
       ?>
-     
-      <div id="textToRead" style="line-height: 30px; padding: 0px 0px 100px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 15px;" class="content">
+
+      <div id="textToRead"
+        style="line-height: 30px; padding: 0px 0px 100px 0px; text-align: justify; font-family: 'Monlam', Arial, sans-serif; font-size: 15px;"
+        class="content">
         <?php echo $web_content; ?>
       </div>
       <div>
-      
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
         <hr>
-        <!-- <h5 style="padding-bottom: 30px;" >རྟགས་རིས་ཁ་བྱང་། (QR)</h5> -->
-      
-
-
-
-        
-
-        <!-- <script>
+        <script>
           let msg; // Define outside to make it reusable
 
           function populateVoiceList() {
@@ -157,54 +185,46 @@ $map = $post['map'];
             speakText();
           }
 
-        </script> -->
-          </div>
-
-          <?php
-          require_once 'vendor/phpqrcode/qrlib.php';
-          
-          if(isset($post['slug'])){                                  
-          $text =$baseUrl.'/organization.php?url='.$post['slug'].'';
-          $qtex = str_replace(" ", "",$text);
-          
-          // Start output buffering
-          ob_start();
-          // Generate the QR code and output it directly to the buffer
-          QRcode::png($text, null, QR_ECLEVEL_L, 3, 2);
-          // Capture the buffered output into a variable
-          $imageString = ob_get_contents();
-          // Clean (erase) the output buffer and turn off output buffering
-          ob_end_clean();
-
-          // Encode the image in base64 format
-         $imageData = base64_encode($imageString);
-
-          // Generate the HTML code for the image
-          ?>
-          <div style="text-align: center;">
-          <?php
-          //echo '<img src="data:image/png;base64,' . $imageData . '" />';
-          ?>
-        </div>
-        <?php                               
-        }
-        ?>
-        
-        <div style="padding-bottom: 200px;">
-        
-        </div>
-      
-      
-     
-
+        </script>
       </div>
-   
+      <?php
+      require_once 'vendor/phpqrcode/qrlib.php';
 
-    <?php include('includes/sidebar-tensum.php'); ?>
+      if (isset($post['slug'])) {
+        $text = $baseUrl . '/tensum.php?url=' . $post['slug'] . '';
+        $qtex = str_replace(" ", "", $text);
+
+        // Start output buffering
+        ob_start();
+        // Generate the QR code and output it directly to the buffer
+        QRcode::png($text, null, QR_ECLEVEL_L, 3, 2);
+        // Capture the buffered output into a variable
+        $imageString = ob_get_contents();
+        // Clean (erase) the output buffer and turn off output buffering
+        ob_end_clean();
+
+        // Encode the image in base64 format
+        $imageData = base64_encode($imageString);
+
+        // Generate the HTML code for the image
+        ?>
+        <div style="text-align: center;">
+          <?php
+          echo '<img src="data:image/png;base64,' . $imageData . '" />';
+          ?>
+        </div>
+        <?php
+      }
+      ?>
+      <div style="padding-bottom: 200px;">
+      </div>
+    </div>
+    <?php include ('includes/sidebar-page.php'); ?>
 
   </div>
   <!-- /.row -->
 
 </div>
+</div>
 <!-- /.container -->
-<?php include('includes/footer.php'); ?>
+<?php include ('includes/footer.php'); ?>
