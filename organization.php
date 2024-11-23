@@ -117,7 +117,7 @@ $map = $post['map'];
          
           $ensound = $post['sound']; 
           
-          $ensound = str_ireplace("TN", "EN", $ensound);
+          $ensound = str_ireplace("GP", "NP", $ensound);
           ?>
         <source src="<?php echo $ensound; ?>" type="audio/mp3">
         </audio>
