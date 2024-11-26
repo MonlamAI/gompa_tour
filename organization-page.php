@@ -183,7 +183,7 @@ $start = ($curpage * $perpage) - $perpage;
                $start2 = ($page2 > 1) ? ($page2 * $limit2) - $limit2 : 0;
 
                 // Prepare the full-text search query
-                $sql2 = "SELECT * FROM organization ORDER BY $titel DESC LIMIT :start, :limit";
+                $sql2 = "SELECT * FROM organization ORDER BY categories, $titel DESC LIMIT :start, :limit";
                 $stmt2 = $db->prepare($sql2);
           
                 $stmt2->bindValue(':start', $start2, PDO::PARAM_INT);
