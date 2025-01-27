@@ -103,7 +103,7 @@
                     <a href="#"><i class="fa fa-institution"></i> གནས་ཆེན།<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="add-organization.php">གནས་ཆེན་གསར་སྣོན།</a>
+                            <a href="add-nechen.php">གནས་ཆེན་གསར་སྣོན།</a>
                         </li>
                         <li>
                             <a href="view-organization.php">གནས་ཆེན་རེའུ་མིག</a>
