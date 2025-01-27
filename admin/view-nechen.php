@@ -17,14 +17,14 @@ if(isset($_GET['page']) & !empty($_GET['page'])){
 }else{
   $curpage = 1;
 }
-// get the number of total organization from organization table
+// get the number of total nechen from nechen table
 if($user['role'] == 'administrator'){
-    $sql = "SELECT * FROM organization";
+    $sql = "SELECT * FROM nechen";
     $result = $db->prepare($sql);
     $result->execute();
     $totalres = $result->rowCount();
 }elseif($user['role'] == 'editor'){
-    $sql = "SELECT * FROM organization WHERE uid=?";
+    $sql = "SELECT * FROM nechen WHERE uid=?";
     $result = $db->prepare($sql);
     $result->execute(array($_SESSION['id']));
     $totalres = $result->rowCount();
@@ -105,8 +105,8 @@ $start = ($curpage * $perpage) - $perpage;
                                     <td><?php if(isset($post['pic']) & !empty($post['pic'])){ echo "Yes"; }else{ echo "No"; } ?></td>
                                     <td><?php echo $post['updated']; ?></td>
                                     <td><?php echo $post['status']; ?></td>
-                                    <td><a href="edit-organization.php?id=<?php echo $post['id']; ?>">Edit</a> | 
-                                    <a href="#" data-toggle="modal" data-target="#deleteConfirmModal" data-delete-url="delete-item.php?id=<?php echo $post['id']; ?>&item=organization">Delete</a>
+                                    <td><a href="edit-nechen.php?id=<?php echo $post['id']; ?>">Edit</a> | 
+                                    <a href="#" data-toggle="modal" data-target="#deleteConfirmModal" data-delete-url="delete-item.php?id=<?php echo $post['id']; ?>&item=nechen">Delete</a>
                                     
                                 </td>
                                 </tr>
