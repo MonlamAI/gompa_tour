@@ -138,15 +138,13 @@ if (isset($_POST) & !empty($_POST)) {
             ':tbcontent' => $_POST['tbcontent'],
             ':encontent' => $_POST['encontent'],
             ':categories' => $_POST['categories'],
-            ':street' => $_POST['street'],
-            ':address_2' => $_POST['address_2'],
+          
+            
             ':city' => $_POST['city'],
             ':state' => $_POST['state'],
             ':postal_code' => $_POST['postal_code'],
             ':country' => $_POST['country'],
-            ':phone' => $_POST['phone'],
-            ':email' => $_POST['email'],
-            ':web' => $_POST['web'],
+            
             ':map' => $_POST['map'],
             ':status' => $_POST['status'],
             ':callnumber' => $_POST['callnumber'],
