@@ -122,7 +122,7 @@ if (isset($_POST) & !empty($_POST)) {
 
         }
         $dbpathSound = $_POST['sound'];
-        $sql = "UPDATE nechen SET tbtitle=:tbtitle, entitle=:entitle, tbcontent=:tbcontent, encontent=:encontent, categories=:categories, street=:street, address_2=:address_2, city=:city, state=:state, postal_code=:postal_code, country=:country, phone=:phone, email=:email, web=:web, map=:map, status=:status, callnumber=:callnumber, slug=:slug, ";
+        $sql = "UPDATE nechen SET tbtitle=:tbtitle, entitle=:entitle, tbcontent=:tbcontent, encontent=:encontent, categories=:categories, city=:city, state=:state, postal_code=:postal_code, country=:country, map=:map, status=:status, callnumber=:callnumber, slug=:slug, ";
         if (isset($dbpath) && !empty($dbpath)) {
             $sql .= "pic=:pic, ";
         }
@@ -221,7 +221,7 @@ include ('includes/navigation.php');
 <div id="page-wrapper" style="min-height: 345px;">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">གནས་བཤད་བཟོ་བཅོས།</h1>
+            <h1 class="page-header">གནས་ཆེན་བཟོ་བཅོས།</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -230,7 +230,7 @@ include ('includes/navigation.php');
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    གནས་བཤད་བཟོ་བཅོས་བྱ་ཡུལ།...
+                    གནས་ཆེན་བཟོ་བཅོས་བྱ་ཡུལ།...
                 </div>
                 <div class="panel-body" style="background-color: color(srgb 0.97 0.97 0.97);">
                     <?php
