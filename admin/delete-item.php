@@ -38,6 +38,10 @@ if($user['role'] == 'administrator'){
 					$table = 'organization';
 					$redirect = 'view-organization.php';
 					break;
+		case 'nechen':
+					$table = 'nechen';
+					$redirect = 'view-nechen.php';
+					break;
 		case 'events':
 					$table = 'events';
 					$redirect = 'view-event.php';
@@ -87,6 +91,10 @@ if($user['role'] == 'administrator'){
 		case 'organization':
 					$table = 'organization';
 					$redirect = 'view-organization.php';
+					break;
+		case 'nechen':
+					$table = 'nechen';
+					$redirect = 'view-nechen.php';
 					break;
 			
 		case 'menu':
